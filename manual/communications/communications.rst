@@ -89,8 +89,10 @@ module facade, which is the interface **ITransactions**:
 So this is how we send data to the backend server:
 
 1. Define the json structure expected by our backend server.
+
 2. Create a C# class that inherits from ParamsForTransaction and add all parameters
 as public attributes.
+
 3. Create a utility class that uses the required parameters to create a request
 object and sends it through the **ITransactions** facade.
 
