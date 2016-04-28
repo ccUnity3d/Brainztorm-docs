@@ -383,6 +383,11 @@ request.
     }
   }
 
+If you want to skip the transaction for some reason, returning *null* will skip
+the recurring enqueuer once.
+
+Session
+=======
 Before transactions start being handled, the client needs to stablish a session
 with the server which will handle it's requests. This process happens in 2 stages,
 the *handshake* and the *session start*.
@@ -644,8 +649,36 @@ handle it appropriately.
     }
   }
 
-Environment override
---------------------
+Others
+======
 
 Transactions reset
 ------------------
+If for some reason, you need to stop all transaction processing, you need to call
+the **ITransactions** interface *Reset*.
+
+.. code-block:: c#
+
+  public class TransactionStopper: MonoBehaviour
+  {
+    [Inject]
+    private ITransactions transactions;
+
+    private void Update()
+    {
+      if(Input.GetKeyDown(KeyCode.Space))
+      {
+        //Stop all transactions
+        transactions.Reset();
+      }
+    }
+  }
+
+Environment override
+--------------------
+You might need to change environment from a build in order to test against different
+servers. To do so you can just put an *OverrideEnvironmentButton* prefab in any scene;
+pressing this button will show a popup displaying all properly configured environments.
+After an option is selected, the environment will be changed and the game will be restarted.
+
+.. image:: override-environment.png
