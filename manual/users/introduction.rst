@@ -45,64 +45,13 @@ Google Play, Grame Center or Facebook, send information from your social network
 and connects the user accounts that through your social network can a user have
 multiple devices and not lose your progress in the game.
 
-Validators
-----------
-If the execution environment is not production, input and output data is validated in every transaction.
-The validation is performed using a JSON Schema. All listeners should specify a validator class in an
-annotation @Validation (class=<validator class>) at the class level. That validator class should implement
-the TransactionValidator interface, which defines methods getInputSchema for validating input values and
-getOutputSchema for validating output values, they expect as return an array with the expected JSON schema fields,
-their types and whether they are required among other possibilities.
+.. image:: images/social.png
 
-The following is an example of a listener alongside its validators:
+Session
+---------------
+Devices that belong to a user and are connected to a social network such as
+Google Play, Grame Center or Facebook, send information from your social network
+and connects the user accounts that through your social network can a user have
+multiple devices and not lose your progress in the game.
 
-.. code-block:: php
-
-  <?php
-
-  namespace MyGame\Listeners;
-
-  use Brainztorm\Transactions\TransactionListener;
-  use Brainztorm\Transactions\TransactionValidator;
-
-  /**
-   * StorePlayerStatusListener
-   *
-   * Allows to update a player status
-   *
-   * @Validation(class=this)
-   */
-  class StorePlayerStatusListener extends TransactionListener implements TransactionValidator
-  {
-     /**
-      * Returns a JSON-schema structure to validate the input of this transaction
-      */
-     public function getInputSchema()
-     {
-         return [
-             'type' => 'object',
-             "properties" => [
-                 "playerId"    => ["type" => "string"],
-                 "progress"  => ["type" => "integer"]
-             ],
-             "required" => ["player", "progress"]
-         ];
-     }
-
-     /**
-      * Returns a JSON-schema structure to validate the output of this transaction
-      */
-     public function getOutputSchema()
-     {
-         return [];
-     }
-
-     /**
-      * Listener implementation
-      *
-      */
-     public function execute($event, $executor, $data)
-     {
-         // ...
-     }
-  }
+.. image:: images/session.png
