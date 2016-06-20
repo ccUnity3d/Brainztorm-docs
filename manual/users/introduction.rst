@@ -36,7 +36,7 @@ The information stored in the device are:
 - *Notification ID*: A unique code required by Google/Apple to send push notifications to the mobile device.
 - *Quality*: The quality profile being used by device according to a pre-selection or detected according to its hardware.
 - *Timezone*: Timezone of the device.
-- *Manifest*: Unity Cloudbuil information. 
+- *Manifest*: Unity Cloudbuild information. 
 
 .. image:: images/devices2.png
 
