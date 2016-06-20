@@ -35,6 +35,8 @@ The information stored in the device are:
 - *Build*: The build number of the game that is currently playing the user.
 - *Notification ID*: A unique code required by Google/Apple to send push notifications to the mobile device.
 - *Quality*: The quality profile being used by device according to a pre-selection or detected according to its hardware.
+- *Timezone*: Timezone of the device.
+- *Manifest*: Unity Cloudbuild information. 
 
 .. image:: images/devices2.png
 
@@ -95,7 +97,7 @@ Words can be categorized by language, to create / edit a group must enter "Profa
 
 .. image:: images/profanity-category.png
 
-To add a word to the profanity filter should enter "Profanity Regexp" which allows the feeding of those words in a specific group.
+To add a word to the profanity filter should enter "Profanity Filters" which allows the feeding of those words in a specific group.
 
 .. image:: images/profanity-regexp.png
 
@@ -104,4 +106,12 @@ Words can be represented in different types which allow amicably say whether to 
 .. image:: images/profanity-regexp-types.png
 
 
+When updating your username Brainztorm reviews the list profanity filter and see if it is a word that meets the criteria administered:
 
+Valid:
+
+.. image:: images/sdk-profanity-true.png
+
+Invalid:
+
+.. image:: images/sdk-profanity-false.png
