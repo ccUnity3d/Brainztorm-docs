@@ -59,10 +59,13 @@ We can see a history of connections made during the game and from that device.
 
 .. image:: images/session2.png
 
+Brainztorm allow to know the localization of the country by IP Address allowing group the users to use possible market strategies.
+
+.. image:: images/session3.png
+
 Resources
 ---------
-Brainztorm allows resource management in a game with the ability to link these to users for easy handling.
- These can edit user resources in the game are registered by the resource module.
+Brainztorm allows resource management in a game with the ability to link these to users for easy handling. These can edit user resources in the game are registered by the resource module.
 
 .. image:: images/resources.png
 
@@ -71,24 +74,18 @@ Achievements
 Brainztorm allows achievements management in a game with the ability to link these to users for easy handling.
 These can edit user achievements in the game are registered by the achievements module.
 
-.. image:: images/achievements.png
-
 PVP
 ----
-Brainztorm can view the history of PVP (Player vs. Player) battles where registration
- enter conducted two have already registered users will see.
+Brainztorm can view the history of PVP (Player vs. Player) battles where registration enter conducted two have already registered users will see.
 
 Inbox
 ------
-Brainztorm offers the experience of being able to send notifications to users custom games
- or sending mass messages coming to your personal inbox.
+Brainztorm offers the experience of being able to send notifications to users custom games or sending mass messages coming to your personal inbox.
 
 Logs
 -----
-Brainztorm offers the experience of seeing a variety of logs for seguimineto errors in the
- game and to give more information to developers to fix them.
+Brainztorm offers the experience of seeing a variety of logs for seguimineto errors in the game and to give more information to developers to fix them.
 
 Store
 -----
-Brainztorm offers the experience to see products that can see each user as desired by the owners
- of the games and promotions criteria regions of the world.
+Brainztorm offers the experience to see products that can see each user as desired by the owners of the games and promotions criteria regions of the world.
