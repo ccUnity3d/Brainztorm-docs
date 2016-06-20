@@ -51,17 +51,14 @@ Session
 Devices that belong to a user and are connected to a social network such as
 Google Play, Game Center or Facebook, send information from your social network
 and connects the user accounts that through your social network can a user have
-multiple devices and not lose your progress in the game.
+multiple devices and not lose your progress in the game. 
+Brainztorm allow to know the localization of the country by IP Address allowing group the users to use possible market strategies.
 
 .. image:: images/session.png
 
 We can see a history of connections made during the game and from that device.
 
 .. image:: images/session2.png
-
-Brainztorm allow to know the localization of the country by IP Address allowing group the users to use possible market strategies.
-
-.. image:: images/session3.png
 
 Resources
 ---------
@@ -89,3 +86,9 @@ Brainztorm offers the experience of seeing a variety of logs for seguimineto err
 Store
 -----
 Brainztorm offers the experience to see products that can see each user as desired by the owners of the games and promotions criteria regions of the world.
+
+Profanity Filter
+----------------
+Games should restrict by language words which are reserved or offensive that could cause a game to be closed or suspended. Brazintorm offers a profanity filter which allows feed and detect these words to avoid this mess by entering the name of a user or a game allowing chat easily avoid these legal problems.
+
+.. image:: images/profanity.png
