@@ -99,11 +99,11 @@ Words can be categorized by language, to create / edit a group must enter "Profa
 
 To add a word to the profanity filter should enter "Profanity Filters" which allows the feeding of those words in a specific group.
 
-.. image:: images/profanity-regexp.png
+.. image:: images/profanity-filters.png
 
 Words can be represented in different types which allow amicably say whether to search for the word at the beginning or end of a frace / word or that word exactly.
 
-.. image:: images/profanity-regexp-types.png
+.. image:: images/profanity-filters-types.png
 
 
 When updating your username Brainztorm reviews the list profanity filter and see if it is a word that meets the criteria administered:
