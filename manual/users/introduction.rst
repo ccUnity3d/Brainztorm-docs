@@ -91,4 +91,17 @@ Profanity Filter
 ----------------
 Games should restrict by language words which are reserved or offensive that could cause a game to be closed or suspended. Brazintorm offers a profanity filter which allows feed and detect these words to avoid this mess by entering the name of a user or a game allowing chat easily avoid these legal problems.
 
-.. image:: images/profanity.png
+Words can be categorized by language, to create / edit a group must enter "Profanity Category":
+
+.. image:: images/profanity-category.png
+
+To add a word to the profanity filter should enter "Profanity Regexp" which allows the feeding of those words in a specific group.
+
+.. image:: images/profanity-regexp.png
+
+Words can be represented in different types which allow amicably say whether to search for the word at the beginning or end of a frace / word or that word exactly.
+
+.. image:: images/profanity-regexp-types.png
+
+
+
