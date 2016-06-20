@@ -51,17 +51,14 @@ Session
 Devices that belong to a user and are connected to a social network such as
 Google Play, Game Center or Facebook, send information from your social network
 and connects the user accounts that through your social network can a user have
-multiple devices and not lose your progress in the game.
+multiple devices and not lose your progress in the game. 
+Brainztorm allow to know the localization of the country by IP Address allowing group the users to use possible market strategies.
 
 .. image:: images/session.png
 
 We can see a history of connections made during the game and from that device.
 
 .. image:: images/session2.png
-
-Brainztorm allow to know the localization of the country by IP Address allowing group the users to use possible market strategies.
-
-.. image:: images/session3.png
 
 Resources
 ---------
