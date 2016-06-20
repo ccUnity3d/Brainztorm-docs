@@ -28,7 +28,7 @@ device hardware server Brainztorm linking it to a user.
 The information stored in the device are:
 
 - *UUID*: The Universal Unique Identifier of the mobile device.
-- *Platform*: Is dispotiivos mobile operating system, such as iOS, Android and default is Editor.
+- *Platform*: Operating system of the device mobile , such as: iOS, Android and default is Editor.
 - *Device Model*: The model registered device, such as iPhone 6.
 - *OS Version*: The version of the mobile operating system.
 - *Locale*: The language you have set up the operating sitema having the mobile device.
@@ -41,7 +41,7 @@ The information stored in the device are:
 Social Networks
 ---------------
 Devices that belong to a user and are connected to a social network such as
-Google Play, Grame Center or Facebook, send information from your social network
+Google Play, Game Center or Facebook, send information from your social network
 and connects the user accounts that through your social network can a user have
 multiple devices and not lose your progress in the game.
 
