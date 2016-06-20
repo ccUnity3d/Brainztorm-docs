@@ -107,7 +107,9 @@ Words can be represented in different types which allow amicably say whether to 
 When updating your username Brainztorm reviews the list profanity filter and see if it is a word that meets the criteria administered:
 
 Valid:
+
 .. image:: images/sdk-profanity-true.png
 
 Invalid:
+
 .. image:: images/sdk-profanity-false.png
