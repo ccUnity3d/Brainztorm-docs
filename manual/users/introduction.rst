@@ -97,7 +97,7 @@ Words can be categorized by language, to create / edit a group must enter "Profa
 
 .. image:: images/profanity-category.png
 
-To add a word to the profanity filter should enter "Profanity Filters" which allows the feeding of those words in a specific group.
+To add a filter to the profanity filter should enter "Profanity Filters" which allows the filling of those words in a specific group.
 
 .. image:: images/profanity-filters.png
 
