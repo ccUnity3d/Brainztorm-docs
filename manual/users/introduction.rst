@@ -86,3 +86,9 @@ Brainztorm offers the experience of seeing a variety of logs for seguimineto err
 Store
 -----
 Brainztorm offers the experience to see products that can see each user as desired by the owners of the games and promotions criteria regions of the world.
+
+Profanity Filter
+----------------
+Games should restrict by language words which are reserved or offensive that could cause a game to be closed or suspended. Brazintorm offers a profanity filter which allows feed and detect these words to avoid this mess by entering the name of a user or a game allowing chat easily avoid these legal problems.
+
+.. image:: images/profanity.png
