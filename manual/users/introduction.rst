@@ -97,6 +97,13 @@ Brainztorm allows resource management in a game with the ability to link these t
 
 .. image:: images/resources.png
 
+The fields in resources are:
+
+- *Code*: Code to represent the resource.
+- *Tags*: Tags to group the resources.
+- *Amount*: Amount of the resource.
+- *Maximum Amount*: Maximum amount of the resource.
+
 Achievements
 -------------
 Brainztorm allows achievements management in a game with the ability to link these to users for easy handling.
