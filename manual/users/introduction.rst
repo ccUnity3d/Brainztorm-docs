@@ -69,16 +69,27 @@ Brainztorm allow to know the localization of the country by IP Address allowing 
 
 .. image:: images/session.png
 
+The information stored into the session are:
+
+- *LastUUID*: The last UUID that logged.
+- *Start Activity*: Time when you start login.
+- *Last Activity*: Time when you logout.
+- *LastIpAddress*: The last IP Address that logged.
+- *LastCountry*: The last country that logged.
+- *LastBuild*: The last version of the build that start logged
+- *LastTimezone*: The last timezone that logged.
+
 We can see a history of connections made during the game and from that device.
 
 .. image:: images/session2.png
 
-The information stored into the session are:
-
-- *LastUUID*: 
-- *Start Activity*: 
-- *LastUUID*: 
-- *LastUUID*: 
+- *UUID*: UUID that logged.
+- *Start Activity*: Time when you start login.
+- *Last Activity*:  Time when you logout.
+- *IpAddress*: IP Address that logged.
+- *Country*: Country that logged.
+- *Build*: Version of the build that start logged.
+- *Timezone*: The last timezone that logged.
 
 Resources
 ---------
