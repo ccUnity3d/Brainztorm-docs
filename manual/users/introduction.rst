@@ -133,13 +133,32 @@ Words can be categorized by language, to create / edit a group must enter "Profa
 
 .. image:: images/profanity-category.png
 
+The fields in profanity category are:
+
+- *Name*: Name to represent the category. 
+- *Locale*: Locale language. 
+
 To add a filter to the profanity filter should enter "Profanity Filters" which allows the filling of those words in a specific group.
 
 .. image:: images/profanity-filters.png
 
+The fields in profanity filters are:
+
+- *Category*: Category of the filter. 
+- *Type*: The type to apply the filter.
+- *Value*: Value of the filter. 
+
 Words can be represented in different types which allow amicably say whether to search for the word at the beginning or end of a frace / word or that word exactly.
 
 .. image:: images/profanity-filters-types.png
+
+- *First*: It indicates that you should start with the set value. Example: Start with the word "Apple".
+- *Last*: It indicates that you should end with the set value. Example: End with the word "Apple".
+- *Exactly*: It indicates that you should exactly the value. Example: Exactly the word "Apple" without case sensitive.
+- *Inverse First*: It indicates that you should start with the set value. Example: Start with the word "محمد".
+- *Inverse First*: It indicates that you should end with the set value. Example: End with the word "محمد".
+- *Inverse Exactly*: It indicates that you should exactly the value. Example: Exactly the word "محمد".
+- *None*: It indicates that you should exactly the value. Example: Exactly the word "Apple" with case sensitive.
 
 
 When updating your username Brainztorm reviews the list profanity filter and see if it is a word that meets the criteria administered:
