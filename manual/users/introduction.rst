@@ -48,6 +48,17 @@ allowing a user to start session using any of his registered networks without lo
 
 .. image:: images/social.png
 
+
+The information stored in the user are:
+- *Social network*: Social netowkr conencted.
+- *NetworkId*: Id único que representa el código del usuario en la red social.
+- *Nickname*: Username in the social network.
+
+The social networks available:
+ - Google Play
+ - Game Center
+ - Facebook
+
 Session
 -------
 Devices that belong to a user and are connected to a social network such as
@@ -61,6 +72,13 @@ Brainztorm allow to know the localization of the country by IP Address allowing 
 We can see a history of connections made during the game and from that device.
 
 .. image:: images/session2.png
+
+The information stored into the session are:
+
+- *LastUUID*: 
+- *Start Activity*: 
+- *LastUUID*: 
+- *LastUUID*: 
 
 Resources
 ---------
