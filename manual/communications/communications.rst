@@ -1,10 +1,6 @@
-*******************
-Communications SDK
-*******************
-
 Introduction
 ===============
-Brainztorm provides a communications SDK component eases the communication to the backend servers and frees the developer from many important concerns such as: security, integrity, performance, data serialization and more. It also gives you the power to configurate many aspects from client-side and server-side settings so you can adjust parameters to make them more adaptable to the game's specific needs.
+Eases communication with backend servers and frees the developer from many important concerns such as: security, integrity, performance, data serialization, and more. It also gives you the power to configure client and server settings so you can adjust parameters to addapt it to the game's specific needs.
 
 Configuration
 =============
