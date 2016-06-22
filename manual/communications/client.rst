@@ -11,7 +11,7 @@ file which will allow you to easily configure the servers your players interact 
 Once you got those urls, you need to put them in the *Environment Settings* scriptable
 object inside the settings folder as follows:
 
-.. image:: environment-settings.png
+.. image:: images/environment-settings.png
 
 You can test different environments and keep the configurations for each one updated.
 
@@ -606,7 +606,7 @@ a given ammount of times, if you want to add other errors to be retried you can 
 so in the *Retry Settings* scriptable object, as well as configuring the timespan
 between retries.
 
-.. image:: retry-settings.png
+.. image:: images/retry-settings.png
 
 And if you want to perform more complex operations while determining if a retry can be done
 you need to implement the interface **ICanRetryErrorCodeHandler**. For example, this is
@@ -677,4 +677,4 @@ servers. To do so you can just put an *OverrideEnvironmentButton* prefab in any 
 pressing this button will show a popup displaying all properly configured environments.
 After an option is selected, the environment will be changed and the game will be restarted.
 
-.. image:: override-environment.png
+.. image:: images/override-environment.png
