@@ -1,17 +1,16 @@
 Introduction
 ============
 
-It provides an interface for managing users and their devices to record useful
-information for managing a game, recording data such as:
+Provides an interface to manage users and their devices. Also, collects useful
+information and allows you to perform actions such as:
 
-- Information about the device log on to the game.
-- Unification of devices for social networking.
-- Location by device user.
-- Lifetime a user and their history logins.
-- Registration logs of a device in the game.
-- Management of banned users.
-- Resource management game to a user.
-- State of other modules such as:
+- Device login on to the game.
+- Unified devices for social networking.
+- Location by user device.
+- Play session history.
+- Banned users management.
+- Resource management.
+- Integration with other modules:
  - Achievements
  - Resources
  - Store
@@ -20,21 +19,21 @@ information for managing a game, recording data such as:
 
 Devices
 -------
-When you log into the game, devices are sending all the information of the mobile
-device hardware to the Brainztorm server linking it to a user.
+When you log into the game, devices send hardware and OS information to the server, linking it to a user through
+an unique device id.
 
 .. image:: images/devices.png
 
-The information stored in the device are:
+The information available is:
 
-- *UUID*: The Universal Unique Identifier of the mobile device.
-- *Platform*: Operating system of the device mobile, such as: iOS, Android and default is Editor.
-- *Device Model*: The model of registered device, such as iPhone 6.
-- *OS Version*: The version of the mobile operating system.
-- *Locale*: The language of the user device.
+- *UUID*: Universal Unique Identifier.
+- *Platform*: Operating system, such as: iOS, Android, Windows, Editor, etc.
+- *Device Model*: Model of the mobile device, such as iPhone 6.
+- *OS Version*: Operating system version.
+- *Locale*: Current language selected on the mobile device.
 - *Build*: The build number of the game that is currently playing the user.
 - *Notification ID*: A unique code required by Google/Apple to send push notifications to the mobile device.
-- *Quality*: The quality profile being used by device according to a pre-selection or detected according to its hardware.
+- *Quality*: The quality profile used by the device, uses a prior selected value or detects the best option automatically according to the hardware performance.
 - *Timezone*: Timezone of the device.
 - *Manifest*: Unity Cloudbuild information. 
 
@@ -42,42 +41,37 @@ The information stored in the device are:
 
 Social Networks
 ---------------
-Devices that belong to a user and are connected to supported social networks such as
-Google Play, Game Center or Facebook, basic information is share to the Brainztorm backend
-allowing a user to start session using any of his registered networks without losing his game progress.
+Devices that belong to a user and are connected to supported social networks like Google Play, Game Center or Facebook, send information to the server. This allows an user to login using any of his registered networks and continue with their prior game progress.
 
 .. image:: images/social.png
 
-
-The information stored in the user are:
-- *Social network*: Social netowkr conencted.
-- *NetworkId*: Id único que representa el código del usuario en la red social.
+Information stored is:
+- *Social network*: Social network type.
+- *NetworkId*: Unique user id on the social network.
 - *Nickname*: Username in the social network.
 
-The social networks available:
+Supported social networks:
  - Google Play
  - Game Center
  - Facebook
 
 Session
 -------
-Devices that belong to a user and are connected to a social network such as
-Google Play, Game Center or Facebook, send information from your social network
-and connects the user accounts that through your social network can a user have
-multiple devices and not lose your progress in the game. 
-Brainztorm allow to know the localization of the country by IP Address allowing group the users to use possible market strategies.
+Each time the user starts the game, a connection is stablished with our server. We collect data related to this play session.
+
+The country where the user is playing is tracked by IP address, allowing to group users by country or region. This information can be used for marketing purposes.
 
 .. image:: images/session.png
 
-The information stored into the session are:
+The information stored into the sessions are:
 
-- *LastUUID*: The last UUID that logged.
-- *Start Activity*: Time when you start login.
-- *Last Activity*: Time when you logout.
+- *LastUUID*: Unique id for the last device the user used.
+- *Start Activity*: Time when the user started playing.
+- *Last Activity*: Time when the user quitted the game.
 - *LastIpAddress*: The last IP Address that logged.
-- *LastCountry*: The last country that logged.
-- *LastBuild*: The last version of the build that start logged
-- *LastTimezone*: The last timezone that logged.
+- *LastCountry*: The last country the user played from.
+- *LastBuild*: The last build version used.
+- *LastTimezone*: The last timezone the user played from.
 
 We can see a history of connections made during the game and from that device.
 
