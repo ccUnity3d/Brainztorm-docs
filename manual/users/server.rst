@@ -10,7 +10,8 @@ information and allows you to perform actions such as:
 - Play session history.
 - Banned users management.
 - Resource management.
-- Integration with other modules:
+
+This module is integrated with the following components:
  - Achievements
  - Resources
  - Store
@@ -45,7 +46,6 @@ Devices that belong to a user and are connected to supported social networks lik
 
 .. image:: images/social.png
 
-Information stored is:
 - *Social network*: Social network type.
 - *NetworkId*: Unique user id on the social network.
 - *Nickname*: Username in the social network.
@@ -63,8 +63,6 @@ The country where the user is playing is tracked by IP address, allowing to grou
 
 .. image:: images/session.png
 
-The information stored into the sessions are:
-
 - *LastUUID*: Unique id for the last device the user used.
 - *Start Activity*: Time when the user started playing.
 - *Last Activity*: Time when the user quitted the game.
@@ -73,7 +71,7 @@ The information stored into the sessions are:
 - *LastBuild*: The last build version used.
 - *LastTimezone*: The last timezone the user played from.
 
-We can see a history of connections made during the game and from that device.
+We can see a history of connections made for that user.
 
 .. image:: images/session2.png
 
@@ -87,11 +85,9 @@ We can see a history of connections made during the game and from that device.
 
 Resources
 ---------
-Brainztorm allows resource management in a game with the ability to link these to users for easy handling. These can edit user resources in the game are registered by the resource module.
+Brainztorm allows resource management in a game with the ability to link these to users for easy handling. These can be used in the game through the resources module.
 
 .. image:: images/resources.png
-
-The fields in resources are:
 
 - *Code*: Code to represent the resource.
 - *Tags*: Tags to group the resources.
@@ -100,34 +96,32 @@ The fields in resources are:
 
 Achievements
 -------------
-Brainztorm allows achievements management in a game with the ability to link these to users for easy handling.
-These can edit user achievements in the game are registered by the achievements module.
+Brainztorm allows achievement management in a game with the ability to link these to users for easy handling.
+These can be used through the Achievements module.
 
 PVP
 ----
-Brainztorm can view the history of PVP (Player vs. Player) battles where registration enter conducted two have already registered users will see.
+Brainztorm can view the history of PVP (Player vs. Player) battles if they are logged to the server.
 
 Inbox
 ------
-Brainztorm offers the experience of being able to send notifications to users custom games or sending mass messages coming to your personal inbox.
+Brainztorm allows sending notifications to users, custom game messages for a player or sending mass messages coming to their inbox.
 
 Logs
 -----
-Brainztorm offers the experience of seeing a variety of logs for seguimineto errors in the game and to give more information to developers to fix them.
+Brainztorm allows you to log data in your game either for debugging, error tracking and more. These logs can be useful both for your support and QA teams.
 
 Store
 -----
-Brainztorm offers the experience to see products that can see each user as desired by the owners of the games and promotions criteria regions of the world.
+Different products can be offered to different sets of users. The parameters can be based on locale, language, country, age, etc.
 
 Profanity Filter
 ----------------
-Games should restrict by language words which are reserved or offensive that could cause a game to be closed or suspended. Brazintorm offers a profanity filter which allows feed and detect these words to avoid this mess by entering the name of a user or a game allowing chat easily avoid these legal problems.
+Games restrict reserved or offensive wordsr that could cause a game to be closed or suspended from the application market. Brainztorm offers a profanity filter which allows to create filters and apply them to avoid their usage on different instances. A good example are usernames or chat services.
 
-Words can be categorized by language, to create / edit a group must enter "Profanity Category":
+Words can be categorized by language, to create / edit a group use the "Profanity Category" tab:
 
 .. image:: images/profanity-category.png
-
-The fields in profanity category are:
 
 - *Name*: Name to represent the category. 
 - *Locale*: Locale language. 
@@ -136,13 +130,11 @@ To add a filter to the profanity filter should enter "Profanity Filters" which a
 
 .. image:: images/profanity-filters.png
 
-The fields in profanity filters are:
-
 - *Category*: Category of the filter. 
 - *Type*: The type to apply the filter.
 - *Value*: Value of the filter. 
 
-Words can be represented in different types which allow amicably say whether to search for the word at the beginning or end of a frace / word or that word exactly.
+Words can be represented in different ways which allow a wide range of ways to match the word: whether to search for the word at the beginning or end of a frace / word or that word exactly.
 
 .. image:: images/profanity-filters-types.png
 
@@ -155,7 +147,7 @@ Words can be represented in different types which allow amicably say whether to 
 - *None*: It indicates that you should exactly the value. Example: Exactly the word "Apple" with case sensitive.
 
 
-When updating your username Brainztorm reviews the list profanity filter and see if it is a word that meets the criteria administered:
+When updating your username Brainztorm checks the list of profanity filters and see if it is a word that meets any criteria:
 
 Valid:
 
