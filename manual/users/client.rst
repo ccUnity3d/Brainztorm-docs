@@ -1,17 +1,19 @@
-=================
+Client Communications
+=====================
+
 Introduction
-=================
+------------
 Allows to keep track of players, their devices, social networks and other useful information.
 Also provides a unique way to identify players so other Brainztorm and game-specific components
 can rely on it to achieve different goals.
 
 .. image:: images/users.png
 
-For example you can keep track of user's level, or unlocked characters. Most of brainztorm components
+For example you can keep track of user's level, or unlocked characters. Most of Brainztorm components
 like store, quests, daily missions, and more are user dependent.
 
 How to use it
-=================
+-------------
 You can get the current user id through the *IUserIds* interface
 
 .. code-block:: c#
@@ -32,7 +34,7 @@ The server knows the user id after the session is stablished, and neither transa
 data files to keep track of them.
 
 Username
-------------
+--------
 You can prompt users to change their username at any time, you can do so through the *IUserNameChanger* interface. If the player has
 a previously created username, this will be set as default value. Otherwise, the last linked social network id will be used as default.
 
@@ -71,7 +73,7 @@ Usernames, as well as other features, is constrained by a profanity filter. This
 You can find this useful for brands or offensive words that could get the game rejected from application stores.
 
 Social Networks
-----------------
+---------------
 You can link social networks to user's game profile, doing so allows them to keep their progress on different
 scenarios:
 
@@ -99,7 +101,7 @@ Also, you can access this information through the **ISocialManager** interface.
   }
 
 How it works
-=============
+------------
 Once the session starts, a transaction request called **GetUserData** is sent together with the **TransactionStarter**. The transaction starter contains the device's
 UUID and social network ids if any is available; as well as the last user id used in this device. The server searches for users linked with network ids, if none is found
 it tries to find one that is linked to the current UUID. If the server fails to find a matching user, creates one and links it to the UUID.
