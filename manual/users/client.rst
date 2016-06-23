@@ -34,7 +34,7 @@ The server knows the user id after the session is stablished, and neither transa
 data files to keep track of them.
 
 Username
---------
+^^^^^^^^
 You can prompt users to change their username at any time, you can do so through the *IUserNameChanger* interface. If the player has
 a previously created username, this will be set as default value. Otherwise, the last linked social network id will be used as default.
 
@@ -68,12 +68,12 @@ user stops typing for a small amount of time or once the submit button is presse
 The appropriate callback will be invoked once the username popup is dismissed.
 
 Profanity Filter
-----------------
+^^^^^^^^^^^^^^^^
 Usernames, as well as other features, is constrained by a profanity filter. This filter defines a set of forbidden expressions which can't be used in game.
 You can find this useful for brands or offensive words that could get the game rejected from application stores.
 
 Social Networks
----------------
+^^^^^^^^^^^^^^^
 You can link social networks to user's game profile, doing so allows them to keep their progress on different
 scenarios:
 
