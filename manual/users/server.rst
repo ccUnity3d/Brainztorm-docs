@@ -1,5 +1,5 @@
-Server Communications
-=====================
+Server Users
+============
 
 Introduction
 ------------
