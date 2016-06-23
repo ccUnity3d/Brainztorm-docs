@@ -1,9 +1,11 @@
+Client Communications
+=====================
 Introduction
-===============
+------------
 Eases communication with backend servers and frees the developer from many important concerns such as: security, integrity, performance, data serialization, and more. It also gives you the power to configure client and server settings so you can adjust parameters to addapt it to the game's specific needs.
 
 Configuration
-=============
+-------------
 To start using the communications component you need to setup a server which will
 handle the requests, a server to handle error reports and upload a handshake configuration
 file which will allow you to easily configure the servers your players interact with.
@@ -19,7 +21,7 @@ You can verify everything is working in the *Demo Communications Events* scene, 
 works perfectly you should see both texts Handshake and Communications turn green.
 
 How to use
-==========
+----------
 The server exposes delegates which handle specific transaction types, processing
 the data sent with the request object and retrieving anything needed for the response.
 These delegates are called *listeners*.
@@ -28,7 +30,7 @@ To interact with a listener you need to know the type of transaction it handles,
 the data that should be sent in the request object, and what to expect in the response.
 
 Making Requests
----------------
+^^^^^^^^^^^^^^^
 Let's suppose we have a Daily Missions component, we give players daily tasks to
 fulfill and we reward them with in-game items or currency for the effort. We are going
 to review the Claim Rewards transaction, in which the client notifies the backend to
@@ -89,7 +91,7 @@ as public attributes.
 object and sends it through the **ITransactions** interface.
 
 Handling Responses
-------------------
+^^^^^^^^^^^^^^^^^^
 Our last example sent data to the server, but it didn't expect a response. It's really common
 to ask the server for information: from inbox messages to quest log data, or maybe we just need to
 know once the transaction has been handled: for example an error report.
@@ -194,7 +196,7 @@ Receiving data from the backend is similar to sending it, this covers most of th
 which you will need to handle with the communications component.
 
 Transactions queue
-------------------
+^^^^^^^^^^^^^^^^^^
 In the last example we used the *Enqueue* method so our request would reach the server.
 The transactions interface has many overloads for different use cases of the communications component,
 but basically it exposes the *Enqueue* and *Send* methods.
@@ -273,7 +275,7 @@ A response object for each enqueued transaction and a *code* field, if this fiel
 is set to *NoError*, states that the server processed the request successfully.
 
 Automatic transactions
-----------------------
+^^^^^^^^^^^^^^^^^^^^^^
 In the previous response you might have noticed that there's an additional object
 which doesn't correspond to any requested transaction.
 
@@ -314,7 +316,7 @@ To subscribe a handler for an automatic transactions, you need to use the method
   }
 
 Recurring enqueuer
-------------------
+^^^^^^^^^^^^^^^^^^
 In case you need to send an specific transaction with each requests, you need to
 implement a recurring enqueuer. This enqueuer will enqueue your transaction automatically
 right before the request is sent. For example, we might want to keep track of game's fps.
@@ -383,13 +385,13 @@ If you want to skip the transaction for some reason, returning *null* will skip
 the recurring enqueuer once.
 
 Session
-=======
+-------
 Before transactions start being handled, the client needs to stablish a session
 with the server which will handle it's requests. This process happens in 2 stages,
 the *handshake* and the *session start*.
 
 Handshake
----------
+^^^^^^^^^
 Games that rely on a backend server can be complex to update and mantain. There can
 be a lot of reasons in which you would need to change the server that clients use
 urgently, maybe a new update or a faulty server.
@@ -471,7 +473,7 @@ Once this file is downloaded and the configuration applyed, the client continues
 to the next stage.
 
 Session start
--------------
+^^^^^^^^^^^^^
 A session needs to be started with the transactions server which was determined
 during the *handshake* stage. This is done with a special transaction called the
 *starter*, this transaction contains device-specific data such as the unique identifier
@@ -514,7 +516,7 @@ This transaction is sent in the first request, alongside with any other initiali
 related transaction.
 
 Events
-------
+^^^^^^
 If you want to enqueue your own initialization transactions or do something once the
 session has been started and brainztorm was initialized, you need to subscribe to the
 events provided in the **ICommunicationEvents** interface.
@@ -551,7 +553,7 @@ events provided in the **ICommunicationEvents** interface.
   }
 
 Handling errors
-===============
+---------------
 If an error is detected by the backend, the status in the response will be different
 to *NoError*, brainztorm handles all internal errors by default. But since you can
 extend brainztorm you can send custom error codes and information for your client
@@ -646,10 +648,10 @@ handle it appropriately.
   }
 
 Others
-======
+------
 
 Transactions reset
-------------------
+^^^^^^^^^^^^^^^^^^
 If for some reason, you need to stop all transaction processing, you need to call
 the **ITransactions** interface *Reset*.
 
@@ -671,7 +673,7 @@ the **ITransactions** interface *Reset*.
   }
 
 Environment override
---------------------
+^^^^^^^^^^^^^^^^^^^^
 You might need to change environment from a build in order to test against different
 servers. To do so you can just put an *OverrideEnvironmentButton* prefab in any scene;
 pressing this button will show a popup displaying all properly configured environments.
