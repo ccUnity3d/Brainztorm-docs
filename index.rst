@@ -10,6 +10,6 @@ Table of Contents
    :maxdepth: 3
 
    manual/communications/client
-   manual/communication/server
+   manual/communications/server
    manual/users/client
    manual/users/server
