@@ -9,4 +9,7 @@ Table of Contents
 .. toctree::
    :maxdepth: 3
 
-   manual/communications/communications
+   manual/communications/client
+   manual/communication/server
+   manual/users/client
+   manual/users/server
