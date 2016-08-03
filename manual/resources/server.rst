@@ -11,7 +11,7 @@ Provides an interface to manage the resources into the game. This module is inte
 
 Initial Resources
 ^^^^^^^^^^^^^^^^^^
-Provide an interface to manage the resources that will be use in the game.
+Provides an interface to manage the resources that will be use in the game.
 
 .. image:: images/resources.png
 
@@ -41,6 +41,24 @@ In the image we can see a button "Add" with this we can add a a new resource in 
 When you finish to add the information of the new resource, we need to do click in the button "Publish" to save the new resource and will show success message.
 
 .. image:: images/success.png
+
+Edit a Resource
+------------------
+
+.. image:: images/resources.png
+
+
+When you select a resource and edit the information, we need to do click in the button "Publish" to save the changes of the resource and will show success message.
+
+.. image:: images/success.png
+
+Delete a Resource
+------------------
+
+.. image:: images/resources.png
+
+
+When you select a resource and open the information appear a red square "X" in the right side, we need to do click in this red square and finally you does click to the button "Publish" to delete the resource.
 
 User Resources
 ^^^^^^^^^^^^^^^
