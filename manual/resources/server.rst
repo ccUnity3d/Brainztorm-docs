@@ -55,7 +55,7 @@ When you select a resource and edit the information, we need to do click in the 
 Delete a Resource
 ------------------
 
-.. image:: images/resources.png
+.. image:: images/delete.png
 
 
 When you select a resource and open the information appear a red square "X" in the right side, we need to do click in this red square and finally you does click to the button "Publish" to delete the resource.
