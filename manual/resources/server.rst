@@ -26,6 +26,22 @@ The information available is:
 - *Icon*: Assets that represent the resource.
 - *Mesh*: Assets that represent the resource in 3D.
 
+Add a new Resource
+------------------
+
+.. image:: images/resources.png
+
+
+In the image we can see a button "Add" with this we can add a a new resource in the game. When you does the click into the button a new record empty is added in the las position of the list. 
+
+
+.. image:: images/new.png
+
+
+When you finish to add the information of the new resource, we need to do click in the button "Publish" to save the new resource and will show success message.
+
+.. image:: images/success.png
+
 User Resources
 ^^^^^^^^^^^^^^^
 
