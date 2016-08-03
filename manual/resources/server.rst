@@ -15,7 +15,7 @@ Provides an interface to manage the resources that will be use in the game.
 
 .. image:: images/resources.png
 
-The information available is:
+The available fields are:
 
 - *Code*: Unique Identifier of the resource.
 - *Name*: Name of the resource.
@@ -63,11 +63,11 @@ When you select a resource and open the information appear a red square "X" in t
 User Resources
 ^^^^^^^^^^^^^^^
 
-Provide an interface to manage the resources of the user in the game.
+Provide an interface to manage the resources of the user in the game. please see the <../users/server.rst>.
 
 .. image:: ../users/images/resources.png
 
-The information available is:
+The available fields are:
 
 - *Code*: Code to represent the resource.
 - *Tags*: Tags to group the resources.
