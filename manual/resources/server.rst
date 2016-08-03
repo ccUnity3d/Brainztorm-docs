@@ -63,7 +63,7 @@ When you select a resource and open the information appear a red square "X" in t
 User Resources
 ^^^^^^^^^^^^^^^
 
-Provide an interface to manage the resources of the user in the game. please see the <../users/server.rst>.
+Provide an interface to manage the resources of the user in the game. please see the `Users <../users/server.rst>`__ .
 
 .. image:: ../users/images/resources.png
 
