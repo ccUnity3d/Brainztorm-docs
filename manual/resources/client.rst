@@ -90,3 +90,25 @@ if after the transaction the value will still be over 0.
     }
   }
   
+Indicators
+^^^^^^^^^^
+We provide resource indicators as well, so the player can keep track of the amount of resources available at any time.
+You can find the prefab on the *Plugins/Brainztorm/Prefabs/Resources* folder. You can use a resource bar, or a single resource indicator.
+
+<resources bar>
+
+<resource indicator>
+
+Once you've got it on your scene you can configure which resources to show.
+
+<configuration>
+
+How it works
+------------
+Resources are synced with brainztorm's servers; any change either locally or on the backend will be inmediately reflected on the other end. The backend server validates all transactions and keeps a log of them.
+
+<transactions log>
+
+Once the Resources component is initialized, it maps the utility ResourceCode info to the id of the corresponding player resource. All changes are made through the Variables component, which stores the data on a secure database.
+
+Even if a hacker manages to cheat the game locally, since our backend has the data regarding every transaction, we can detect intrussions and handle them appropriately.
