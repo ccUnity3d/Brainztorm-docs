@@ -4,14 +4,14 @@ Resources
 Introduction
 ------------
 
-Provides an interface to manage the resources into the game. This module is integrated with the following components:
+Provides an interface to manage resources. This module is integrated with the following components:
 
  - Initial Resources
  - User Resources
 
 Initial Resources
 ^^^^^^^^^^^^^^^^^^
-Provides an interface to manage the resources that will be use in the game.
+Provides an interface to manage resources that will be used in the game.
 
 .. image:: images/resources.png
 
@@ -31,14 +31,11 @@ Add a new Resource
 
 .. image:: images/resources.png
 
-
-In the image we can see a button "Add" with this we can add a a new resource in the game. When you does the click into the button a new record empty is added in the las position of the list. 
-
+We can "Add" a a new resource in the game. When you do it a new empty record is added in the last position of the list. 
 
 .. image:: images/new.png
 
-
-When you finish to add the information of the new resource, we need to do click in the button "Publish" to save the new resource and will show success message.
+When you finish adding the information, press "Publish" to save the new resource.
 
 .. image:: images/success.png
 
@@ -47,8 +44,7 @@ Edit a Resource
 
 .. image:: images/resources.png
 
-
-When you select a resource and edit the information, we need to do click in the button "Publish" to save the changes of the resource and will show success message.
+When you select a resource and edit the information, you need to "Publish" in order to save the changes.
 
 .. image:: images/success.png
 
@@ -57,13 +53,12 @@ Delete a Resource
 
 .. image:: images/delete.png
 
-
-When you select a resource and open the information appear a red square "X" in the right side, we need to do click in this red square and finally you does click to the button "Publish" to delete the resource.
+In order to delete a resource, you can expand it's info display and click the red "x" button. Then save changes pressing "Publish".
 
 User Resources
 ^^^^^^^^^^^^^^^
 
-Provide an interface to manage the resources of the user in the game. please see the `Users <../users/server.rst>`__ .
+Provides an interface to manage user resources in the game. Please see the `Users <../users/server.rst>`__ .
 
 .. image:: ../users/images/resources.png
 
