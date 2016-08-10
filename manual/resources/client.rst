@@ -105,9 +105,7 @@ Once you've got it on your scene you can configure which resources to show.
 
 How it works
 ------------
-Resources are synced with brainztorm's servers; any change either locally or on the backend will be inmediately reflected on the other end. The backend server validates all transactions and keeps a log of them.
-
-<transactions log>
+Resources are synced with brainztorm's servers; any change either locally or on the backend will be inmediately reflected on the other end. The backend server validates all transactions.
 
 Once the Resources component is initialized, it maps the utility ResourceCode info to the id of the corresponding player resource. All changes are made through the Variables component, which stores the data on a secure database.
 
