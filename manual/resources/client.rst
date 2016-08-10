@@ -12,7 +12,7 @@ Configuration
 -------------
 To use the resources module, you need to enable the installer in the module settings.
 
-<enabled resources module>
+.. image:: images/enabled.png
 
 Then you need to create your Resources using the admin and once you've done that sync the data structures with the local Resources definition; to do so you can go to the wizard and select the Resources Module.
 
@@ -95,13 +95,13 @@ Indicators
 We provide resource indicators as well, so the player can keep track of the amount of resources available at any time.
 You can find the prefab on the *Plugins/Brainztorm/Prefabs/Resources* folder. You can use a resource bar, or a single resource indicator.
 
-<resources bar>
+.. image:: images/bar.png
 
-<resource indicator>
+.. image:: images/indicator.png
 
 Once you've got it on your scene you can configure which resources to show.
 
-<configuration>
+.. image:: images/configuration.png
 
 How it works
 ------------
