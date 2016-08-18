@@ -4,38 +4,36 @@ Virtual Entities
 Introduction
 ------------
 
-Provides an interface to manage structures (Virtual Entities) to manage information of the game, with this functionality you can create entities to manage parts of the games as for example heroes into the game providing a administration of the data by the client side, allowing to the game developer manage your own games data in minutes.
+Provides an interface to manage structures (Virtual Entities) and the game data, taking advantage of this functionality, a developer can create entities to manage different aspects of the games, for example: heroes, spells, levels, progression, etc. It also allows clients to access, modify and retrieve data from the client, allowing the game developer manage their own data within minutes.
 
-Create a new virtual entity
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Create a new structure
+^^^^^^^^^^^^^^^^^^^^^^
 
-When you access to admin tools you can enter to the option "Settings", in this option you can manage the data of the entities created and create new virtual entities with structures disengaged to the game.
+When accessing the admin tools under the option "Settings", a game developer can manage the structures data available and create new ones as needed:
 
 .. image:: images/create-virtual-entity.png
 
 In this form you can see:
 
-- *Virtual entity name*: Name of the new virtual entity.
+- *Structure name*: Name of the structure
 
-- *Create Attributes* : Section to add new attributes in the virtual entity. You can add a new attribute addeding the following fields:
+- *Create Attributes* : Section to add new attributes to the structure. You can add a new attribute using the following fields:
 
-   - Name: Name of the attribute to manager.
-   - Label: Label to show in variables system form.
-   - Data type: Type to store the data this attribute.
+   - Name: Name of the attribute
+   - Label: Label to name the structure in the "Settings" screen
+   - Data type: Ensures the data has the required data type 
     .. image:: images/data-types.png
-   - Is detail: label to show in multiple records in the virtual entity data.
-   - nullable: Allow to be null.
+   - Is detail?: Label to easily
+   - Nullable: Indicates whether the type can be null or not
    
-   
-   When you add all data about the attribute you do click in button "Add" too append into list of attributes and save. 
+When you fill the required fields in the form and then click "Add", this appends the attribute to the list and got saved.
 
-- *Attributes*: Attributes or fields of the virtual entity.
+- *Attributes*: Attributes or fields of the structure
 
+Edit a structure
+^^^^^^^^^^^^^^^^
 
-Edit virtual entity
-^^^^^^^^^^^^^^^^^^^^
-
-When you access to variables system option in admin tools you can edit your virtual entities to define a new structure, to change you need is select your virtual entity and click on edit button to open again the form to create virtual entities with all your data loaded of the selected virtual entity.
+When you access to the Variables System option in the Admin Tools, you can edit your structures to modify it as required, to change it what you need is select your structure and click on "Edit" to open the edition form showing all the existing attributes.
 
 .. image:: images/edit-virtual-entity.png
 
