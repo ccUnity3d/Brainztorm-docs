@@ -14,7 +14,7 @@ The error reporting component is one of brainztorm core components, which means 
 
 There's 2 kinds of errors: server-side errors and client-errors, both of them are handled similarly. When brainztorm detects a client-side error, a popup with related info is created; this popup includes a unique error id that customers can use to contact support and inform them of the situation.
 
-<error popup>
+.. image:: images/popup.png
 
 For example, if the player was buying a product from the store and an internal server error happens, transaction data could have not been handled appropriately by the server, leading to missing currency or services. With the corresponding error id, support can verify, reproduce and identify what caused the error.
 
