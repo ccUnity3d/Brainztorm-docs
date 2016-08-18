@@ -18,6 +18,8 @@ There's 2 kinds of errors: server-side errors and client-errors, both of them ar
 
 For example, if the player was buying a product from the store and an internal server error happens, transaction data could have not been handled appropriately by the server, leading to missing currency or services. With the corresponding error id, support can verify, reproduce and identify what caused the error.
 
+Server error handlers
+^^^^^^^^^^^^^^^^^^^^^
 Whenever an error is detected in the server, a report will be created in the error server and the registered error handler will be invoked. To register error handlers for a given error, you need to create an implementation of the *IErrorHandler* interface. This should be registered to *ITransactionErrors* in order to be triggered.
 
 .. code-block:: c#
@@ -72,10 +74,25 @@ Your error handlers can use the error popup as well, through the *IGenericTransa
 
 How it works
 ------------
-All error reports are sent to the error server through an independent web service. These error reports include the following information:
+Error reports are generated for server errors, client errors and crashes. These error reports contain the following information:
+
+- *Id* (string): The unique error id.
+- *ErrorType* (string): The error type, e.g. InvalidUserId.
+- *Content* (string): A stacktrace, request or detailed info with detailed information of how the error report was created.
+- *Time* (int): A UNIX timestamp of the time the error happened.
+- *Build* (string): The build version that has the reported problem.
+- *Hash* (string): A hash of the content, used to avoid the same error triggering a report often.
+
+Server errors
+^^^^^^^^^^^^^
+Server-side errors are sent by the server to the client as the response of the transaction which caused it, then these are sent to the error server together. These error response includes the following information:
 
 - *Error Id* (string): A unique error identifier.
 - *Error Code* (string): The error type or categorization.
 - *Message* (string): A message sent by server describing what happened.
-- *Custom Attributes* (hashtable): Any custom attribute sent by the server when the error was detected.
+- *Custom Attributes* (hashtable): Any custom attributes sent by the server when the error was detected as a key-value dictionary, these come handy for custom error handlers.
 
+The client then submits an error report with both the error data an a JSON string of the request which caused, allowing backend developers to reproduce the scenario easily through HTTP tools.
+
+Client errors
+^^^^^^^^^^^^^
