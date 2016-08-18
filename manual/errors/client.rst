@@ -12,6 +12,8 @@ How to use
 ----------
 The error reporting component is one of brainztorm core components, which means it will be always enabled. It will create reports automatically for: application crashes (iOS only), server errors and detected brainztorm sdk malfunction. 
 
+.. image:: images/errors.png
+
 There's 2 kinds of errors: server-side errors and client-errors, both of them are handled similarly. When brainztorm detects a client-side error, a popup with related info is created; this popup includes a unique error id that customers can use to contact support and inform them of the situation.
 
 .. image:: images/popup.png
@@ -42,7 +44,7 @@ Whenever an error is detected in the server, a report will be created in the err
 
 There's a default error handler, which uses the same error popup and restarts the game when the player dismisses it. To change what is shown to the player in this popup, you can change the *Communication Error Text Settings* either through the configuration view or the settings asset directly.
 
-<error text settings>
+.. image:: images/settings.png
 
 Your error handlers can use the error popup as well, through the *IGenericTransactionErrorPopupMaker* interface you create a popup which will invoke an action you define when dismissed.
 
