@@ -25,9 +25,18 @@ In this form you can see:
     .. image:: images/data-types.png
    - Is detail: label to show in multiple records in the virtual entity data.
    - nullable: Allow to be null.
-
+   
+   
+   When you add all data about the attribute you do click in button "Add" too append into list of attributes and save. 
 
 - *Attributes*: Attributes or fields of the virtual entity.
 
-.. image:: images/devices2.png
 
+Edit virtual entity
+^^^^^^^^^^^^^^^^^^^^
+
+When you access to variables system option in admin tools you can edit your virtual entities to define a new structure, to change you need is select your virtual entity and click on edit button to open again the form to create virtual entities with all your data loaded of the selected virtual entity.
+
+.. image:: images/edit-virtual-entity.png
+
+.. image:: images/create-virtual-entity.png
