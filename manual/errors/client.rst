@@ -96,3 +96,10 @@ The client then submits an error report with both the error data an a JSON strin
 
 Client errors
 ^^^^^^^^^^^^^
+Brainztorm detects errors under different circumstances: may a purchased product miss the receipt validation, a missing key on the localization dictionary, etc. For these situations an error report is submitted to the error server with information regarding the error. These are available only for Brainztorm components.
+
+Crashes
+^^^^^^^
+Brainztorm uses the CrashReport_ API, which is currently available only for ios. These are sent on start and a popup notifying you about it will be displayed. The content has a detailed stack trace that the server symbolizes in order to make it easier to debug.
+
+. _CrashReport: https://docs.unity3d.com/ScriptReference/CrashReport.html
