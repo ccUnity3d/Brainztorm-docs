@@ -104,4 +104,6 @@ Crashes
 ^^^^^^^
 Brainztorm uses the CrashReport_ API, which is currently available only for ios. These are sent on start and a popup notifying you about it will be displayed. The content has a detailed stack trace that the server symbolizes in order to make it easier to debug.
 
+.. image:: images/crash.png
+
 .. _CrashReport: https://docs.unity3d.com/ScriptReference/CrashReport.html
