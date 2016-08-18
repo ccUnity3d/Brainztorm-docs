@@ -6,8 +6,6 @@ Introduction
 Brainztorm's error reporting component helps you detect and debug bugs, errors, and crashes in your game through different
 development steps. Providing a unified place to track errors and a friendly way to interact with the user when these occur.
 
-<error intro>
-
 How to use
 ----------
 The error reporting component is one of brainztorm core components, which means it will be always enabled. It will create reports automatically for: application crashes (iOS only), server errors and detected brainztorm sdk malfunction. 
