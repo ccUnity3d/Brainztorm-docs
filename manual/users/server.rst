@@ -140,17 +140,21 @@ To add a filter to the profanity filter should enter "Profanity Filters" which a
 - *Type*: The type to apply the filter.
 - *Value*: Value of the filter.
 
-Words can be represented in different ways which allow a wide range of ways to match the word: whether to search for the word at the beginning or end of a frace / word or that word exactly.
+Filters can be represented in different ways which allow a wide range of ways to match the word: whether to search for the word at the beginning or end of a frace / word or that word exactly.
 
 .. image:: images/profanity-filters-types.png
 
-- *First*: It indicates that you should start with the set value. Example: Start with the word "Apple".
-- *Last*: It indicates that you should end with the set value. Example: End with the word "Apple".
-- *Exactly*: It indicates that you should exactly the value. Example: Exactly the word "Apple" without case sensitive.
-- *Inverse First*: It indicates that you should start with the set value. Example: Start with the word "Apple".
-- *Inverse First*: It indicates that you should end with the set value. Example: End with the word "Apple".
-- *Inverse Exactly*: It indicates that you should exactly the value. Example: Exactly the word "Apple".
-- *None*: It indicates that you should exactly the value. Example: Exactly the word "Apple" with case sensitive.
+As an example we will use the word "Apple" for the different filter types.
+
+- *First*: It indicates that you cant start with the set value. Example: "Appleseed".
+- *Last*: It indicates that you should end with the set value. Example: "Pineapple".
+- *Exactly*: It indicates that you should exactly the value. Example: "Apple" or "apple".
+
+The inverse are useful for languages that write right to left.
+- *Inverse First*: It indicates that you should start with the set value. Example: "Elppasomething".
+- *Inverse Last*: It indicates that you should end with the set value. Example: "Somethingelppa".
+- *Inverse Exactly*: It indicates that you should exactly the value. Example: "Elppa".
+- *None*: It applys all previous filters.
 
 When updating your username Brainztorm checks the list of profanity filters and see if it is a word that meets any criteria:
 
