@@ -13,3 +13,9 @@ Table of Contents
    manual/communications/server
    manual/users/client
    manual/users/server
+   manual/errors/client
+   manual/errors/server
+   manual/variables/client
+   manual/variables/server
+   manual/resources/client
+   manual/resources/server
