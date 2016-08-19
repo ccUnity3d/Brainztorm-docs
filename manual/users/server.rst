@@ -147,9 +147,9 @@ Words can be represented in different ways which allow a wide range of ways to m
 - *First*: It indicates that you should start with the set value. Example: Start with the word "Apple".
 - *Last*: It indicates that you should end with the set value. Example: End with the word "Apple".
 - *Exactly*: It indicates that you should exactly the value. Example: Exactly the word "Apple" without case sensitive.
-- *Inverse First*: It indicates that you should start with the set value. Example: Start with the word "محمد".
-- *Inverse First*: It indicates that you should end with the set value. Example: End with the word "محمد".
-- *Inverse Exactly*: It indicates that you should exactly the value. Example: Exactly the word "محمد".
+- *Inverse First*: It indicates that you should start with the set value. Example: Start with the word "Apple".
+- *Inverse First*: It indicates that you should end with the set value. Example: End with the word "Apple".
+- *Inverse Exactly*: It indicates that you should exactly the value. Example: Exactly the word "Apple".
 - *None*: It indicates that you should exactly the value. Example: Exactly the word "Apple" with case sensitive.
 
 When updating your username Brainztorm checks the list of profanity filters and see if it is a word that meets any criteria:
