@@ -1,4 +1,4 @@
-Resources
+Server Resources
 ============
 
 Introduction
