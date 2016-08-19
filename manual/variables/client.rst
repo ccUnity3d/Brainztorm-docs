@@ -14,6 +14,6 @@ already available tools.
 
 How to use
 ----------
-The variables module is one of brainztorm's core features, so it will be enabled by default. To start using you first need to define entities using the Entity_Manager_.
+The variables module is one of brainztorm's core features, so it will be enabled by default. To start using you first need to define entities using the `Entity Manager`_.
 
-.. Entity_Manager_: https://github.com/BrainzGames/Brainztorm-docs/blob/master/manual/variables/server.rst#create-a-new-structure
+.. `Entity Manager`_: https://github.com/BrainzGames/Brainztorm-docs/blob/master/manual/variables/server.rst#create-a-new-structure
