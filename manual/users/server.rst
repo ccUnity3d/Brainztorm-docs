@@ -151,6 +151,7 @@ As an example we will use the word "Apple" for the different filter types.
 - *Exactly*: It indicates that you should exactly the value. Example: "Apple" or "apple".
 
 The inverse are useful for languages that write right to left.
+
 - *Inverse First*: It indicates that you should start with the set value. Example: "Elppasomething".
 - *Inverse Last*: It indicates that you should end with the set value. Example: "Somethingelppa".
 - *Inverse Exactly*: It indicates that you should exactly the value. Example: "Elppa".
