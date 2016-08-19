@@ -1,14 +1,13 @@
 Show errors in Admin Tools
 ==========================
+Unde the *Diagnostics > Errors* option, you can see all error reports made by the client, ordered from lastest insidence to the oldest. These error reports include server failures, brainztorm sdks detected errors and crashes.
 
-Admin tools has an option "Diagnostics" and the sub-option "Errors", in this section you can see all the crashes in the game that has been reported by the client ordered by the lastest insidence to the first.
-
-At the right top of the screen, you can find a section of filters to group by type of errors and show a specific error by its code.
+At the right top of the screen, you can find filters to group by type of errors or show a specific error by its unique id.
 
 .. image:: images/errors-filter.png
 
 
-In the list of errors you can see the following columns:
+In the list of errors you can see the following properties:
 
 .. image:: images/errors.png
 
