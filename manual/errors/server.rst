@@ -1,4 +1,4 @@
-Show errors in Admin Tools
+Server Errors
 ==========================
 Unde the *Diagnostics > Errors* option, you can see all error reports made by the client, ordered from lastest insidence to the oldest. These error reports include server failures, brainztorm sdks detected errors and crashes.
 
