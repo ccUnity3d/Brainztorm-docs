@@ -6,6 +6,7 @@ SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
 PAPER         =
 BUILDDIR      = _build
+MODULE 				=
 
 # Internal variables.
 PAPEROPT_a4     = -D latex_paper_size=a4
@@ -37,6 +38,7 @@ help:
 	@echo "  changes    to make an overview of all changed/added/deprecated items"
 	@echo "  linkcheck  to check all external links for integrity"
 	@echo "  doctest    to run all doctests embedded in the documentation (if enabled)"
+	@echo "  module  		to make a pdf with only the given submodule; you should set MODULE=module, where module is a folder inside manual"
 
 clean:
 	-rm -rf $(BUILDDIR)/*
@@ -151,3 +153,9 @@ doctest:
 	$(SPHINXBUILD) -b doctest $(ALLSPHINXOPTS) $(BUILDDIR)/doctest
 	@echo "Testing of doctests in the sources finished, look at the " \
 	      "results in $(BUILDDIR)/doctest/output.txt."
+
+module:
+	$(SPHINXBUILD) -b latex manual/$(MODULE) $(BUILDDIR)/$(MODULE)/latex
+	@echo "Running LaTeX files through pdflatex..."
+	$(MAKE) -C $(BUILDDIR)/$(MODULE)/latex/ all-pdf
+	@echo "pdflatex finished; the PDF files are in $(BUILDDIR)/$(MODULE)/latex."
