@@ -158,4 +158,5 @@ module:
 	$(SPHINXBUILD) -b latex manual/$(MODULE) $(BUILDDIR)/$(MODULE)/latex
 	@echo "Running LaTeX files through pdflatex..."
 	$(MAKE) -C $(BUILDDIR)/$(MODULE)/latex/ all-pdf
+	@mv $(BUILDDIR)/$(MODULE)/latex/BrainztormDocumentation.pdf $(BUILDDIR)/$(MODULE)/latex/Brainztorm-$(MODULE).pdf
 	@echo "pdflatex finished; the PDF files are in $(BUILDDIR)/$(MODULE)/latex."
