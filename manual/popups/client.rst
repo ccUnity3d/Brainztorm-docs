@@ -9,13 +9,13 @@ Este componente, provee unos cuantos tipos de ventana para mostrarle al usuario 
 .. image:: images/popups.png
 
 Un ejemplo de esto, es cuando ocurre un evento que afecta directamente el flujo del juego, como un error de
-conexion, o simplemente, se solita que el usuario ingrese un texto para una validacion de datos.
+conexión, o simplemente, se solicita que el usuario ingrese un texto para una validación de datos.
 
 Modo de Uso
 -----------
 El componente de popups es core, es decir que está siempre presente en Brainztorm sin que el usuario pueda encenderlo
 o apagarlo. Para el uso de este componente, es necesario crear una instancia de la clase del popup que el usuario
-desee mostrar, y mostrarlo a traves de la interface *IPopupsDisplayer*, por ejemplo:
+desee mostrar, y mostrarlo a través de la interface *IPopupsDisplayer*, por ejemplo:
 
 .. code-block:: c#
 
@@ -37,11 +37,11 @@ desee mostrar, y mostrarlo a traves de la interface *IPopupsDisplayer*, por ejem
 		popUpDisplayer.OpenOrEnqueue(popupData);
 	}
 
-Este fragmento de codigo dará como resultado un popup como este:
+Este fragmento de código dará como resultado un popup como este:
 
 .. image:: images/basic_popup_example.png
 
-El usuario tambien puede crear sus propios popups personalizados y modificar el skin de los que
+El usuario también puede crear sus propios popups personalizados y modificar el skin de los que
 ofrece el SDK desde el editor. Para crear popups personalizados, el usuario puede crear una clase
 que herede de la clase SimplePopup, y un controlador para el tipo de popup que se debe añadir al
 gameobject del popup que el usuario acaba de crear, de la siguiente manera:
@@ -61,9 +61,9 @@ gameobject del popup que el usuario acaba de crear, de la siguiente manera:
       }
   }
 
-  Una vez creado el popup, al momento de agregarle el controlador, este añadira automaticamente los
-  componentes *Popup* y *BackNavigationObject* los cuales son importantes para la navegacion de las
-  ventanas. Acto seguido el prefab debe agregarse a la lista de popups de Brainztorm que estan
+  Una vez creado el popup, al momento de agregar el controlador, esté añadira automaticamente los
+  componentes *Popup* y *BackNavigationObject* los cuales son importantes para la navegación de las
+  ventanas. Acto seguido el prefab debe agregarse a la lista de popups de Brainztorm que están
   disponibles en el juego:
 
   .. image:: images/popup_prefabs_settings.png
@@ -76,13 +76,13 @@ que provee el SDK:
 
 PopUpLabelData.cs
 ^^^^^^^^^^^^^^^^^
-Campo de texto estatico dentro del popup, puede activarse o desactivarse mediante el campo *IsEnabled*,
-Su texto puede ser un valor localizado o un texto estatico, el cual puede asignarse mediante los
+Campo de texto estático dentro del popup, puede activarse o desactivarse mediante el campo *IsEnabled*,
+Su texto puede ser un valor localizado o un texto estático, el cual puede asignarse mediante los
 métodos *Text.SetLocalizationKey (string localizationKey, params object[] replacements)* o
 *Text.SetPlainText (string plainText, params object[] replacements)*.
 
-Su contronador es *PopupLabel.cs* y es el script que se debe agregar al componente de texto de
-Unity (UnityEngine.UI.Text) que quiera representar el Label dentro del popup.
+Su controlador es *PopupLabel.cs* y es el script que se debe agregar al componente de texto de
+Unity (UnityEngine.UI.Text) que quiere representar el Label dentro del popup.
 
 .. code-block:: c#
 
@@ -124,9 +124,9 @@ Componente de texto que el usuario ingresa por pantalla, al igual que el compone
 PopupLabelData, este puede activarse o desactivarse desde la propiedad *IsEnabled*,
 sin embargo, este posee dos propiedades PopupLabelData, uno es el componente *FieldText*,
 que es el texto que el usuario ingresa desde el controlador, y la propiedad *Placeholder*,
-que es la marca de agua que se muestra en el campo de texto cuando este esta vacio.
+que es la marca de agua que se muestra en el campo de texto cuando este está vacío.
 
-Su contronador es *PopupInputField.cs* y es el script que se debe agregar al componente de input de
+Su controlador es *PopupInputField.cs* y es el script que se debe agregar al componente de input de
 Unity (UnityEngine.UI.InputField) que quiera representar el campo de texto dentro del popup.
 
 .. code-block:: c#
@@ -183,12 +183,12 @@ Unity (UnityEngine.UI.InputField) que quiera representar el campo de texto dentr
 PopupButtonData.cs
 ^^^^^^^^^^^^^^^^^^^^^^
 Componente de tipo botón, como los demás componentes, puede habilitarse o inhabilitarse desde la propiedad
-*IsEnabled*, ademas de esto, posee una propiedad PopupLabelData, que es el texto que contiene el botón, y una propiedad
-llamada *PresCallback*, un evento de tipo Action, que es la accion que se efectuará al presionar el botón; la propiedad
-*ClosePopupOnPress*, tiene la funcion de cerrar o no el popup cuando el botón sea presionado.
+*IsEnabled*, además de esto, posee una propiedad PopupLabelData, que es el texto que contiene el botón, y una propiedad
+llamada *PresCallback*, un evento de tipo Action, que es la acción que se efectuará al presionar el botón; la propiedad
+*ClosePopupOnPress*, tiene la función de cerrar o no el popup cuando el botón sea presionado.
 
-Su contronador es *PopupButton.cs* y es el script que se debe agregar al componente de botón de
-Unity (UnityEngine.UI.Button) que quiera representar el botón dentro del popup.
+Su controlador es *PopupButton.cs* y es el script que se debe agregar al componente de botón de
+Unity (UnityEngine.UI.Button) que quiere representar el botón dentro del popup.
 
 ..code-block:: c#
 
