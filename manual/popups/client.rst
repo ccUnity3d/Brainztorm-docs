@@ -190,7 +190,7 @@ llamada *PresCallback*, un evento de tipo Action, que es la acción que se efect
 Su controlador es *PopupButton.cs* y es el script que se debe agregar al componente de botón de
 Unity (UnityEngine.UI.Button) que quiere representar el botón dentro del popup.
 
-..code-block:: c#
+.. code-block:: c#
 
     [Serializable]
     public class PopupButtonData
