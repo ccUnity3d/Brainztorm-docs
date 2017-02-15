@@ -1,30 +1,18 @@
-##############
-Quality Module
-##############
-
-Client Quality
-=====================
+#################
+Quality Unity SDK
+#################
 
 `API Reference`_
 
-Introduction
-------------
-The Quality module laverage `Unity Quality Settings`_ for easily monitors game performance 
-and change settings on the fly based on a per-device profiling. Quality sets the 
-game's visual performance, avoiding the complexity from managing many screen sizes, 
-resolutions, graphics cards, memory and other particular characteristics from each brand 
-of consoles or mobile devices. This module offers you a straightforward manner to establish 
-default quality parameters, let players to choose their preferred visual quality and 
-even more important, improve your game, taking decisions based on device profiles.
-
+**********
 How to use
-----------
+**********
 For using this module, first you need activate it in `Brainztorm Settings Menu`_. 
 After, in your code you can access the methods through the provided static class 
 :code:`Brainztorm.Quality`.
 
 Get recommended quality
-~~~~~~~~~~~~~~~~~~~~~~
+=======================
 You can establish recommended quality setting based on per-device characteristics. 
 The :code:`GetQuality` method retrieves (from Backend) the quality recommended for gamer's device.
 
@@ -68,7 +56,7 @@ When you use :code:`GetQuality` method, you get a response as follow:
 - **criticalFpsThreshold**: 
 
 Set preferred quality
-~~~~~~~~~~~~~~~~~~~~~
+=====================
 Gamers can set the quality level overwriting the recommended by Brainztorm. If you choose 
 provide your players with this feature, use the :code:`SetQuality` method.
 
@@ -90,7 +78,7 @@ payload looks like:
 
 .. code-block:: javascript
 
-    Host: demo.brainztorm.com/v1/user/execute/<userId>
+    Host: demo.brainztorm.com/v1/user/execute/<sessionId>
 
     {
         "UUID": "<UUID>",
@@ -108,7 +96,7 @@ payload looks like:
     }
 
 Quality Profiling
-~~~~~~~~~~~~~~~~~
+=================
 An important feature in Quality module is profiling. By this feature you can get vital 
 information about how your game behave across different devices. Profiling consist in 
 periodically send data to Backend for you can analize and take actions to improve your game. 
@@ -123,16 +111,27 @@ Each time the interval reaches, it send data to the Server as follow:
 
 .. code-block:: javascript
 
+    Host: demo.brainztorm.com/v1/user/execute/<sessionId>
+
     {
-        "frames": 12439,
-        "time": 120,
-        "type": "SendQuality",
-        "scene": "Demo Quality",
-        "criticals": 0,
-        "resolution": 0.25,
-        "qualityLevel": 2
+        "UUID": "<UUID>",
+        "start": false,
+        "transactions": [
+            {
+                "pos": 0,
+                "data": {
+                    "frames": 4073,
+                    "time": 120,
+                    "type": "SendQuality",
+                    "scene": "Demo Quality",
+                    "criticals": 0,
+                    "resolution": 0.25,
+                    "qualityLevel": 2
+                },
+                "elapsedTime": 0
+            }
+        ]
     }
 
-.. _API Reference: 
-.. _Unity Quality Settings: https://docs.unity3d.com/Manual/class-QualitySettings.html
+.. _API Reference: #
 .. _Brainztorm Settings Menu: #
