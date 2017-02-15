@@ -1,9 +1,15 @@
+##############
+Quality Module
+##############
+
 Client Quality
 =====================
 
+`API Reference`_
+
 Introduction
 ------------
-The Quality module laverage Unity `Quality Settings`_ for easily monitors game performance 
+The Quality module laverage `Unity Quality Settings`_ for easily monitors game performance 
 and change settings on the fly based on a per-device profiling. Quality sets the 
 game's visual performance, avoiding the complexity from managing many screen sizes, 
 resolutions, graphics cards, memory and other particular characteristics from each brand 
@@ -17,7 +23,7 @@ For using this module, first you need activate it in `Brainztorm Settings Menu`_
 After, in your code you can access the methods through the provided static class 
 :code:`Brainztorm.Quality`.
 
-Get recomended quality
+Get recommended quality
 ~~~~~~~~~~~~~~~~~~~~~~
 You can establish recommended quality setting based on per-device characteristics. 
 The :code:`GetQuality` method retrieves (from Backend) the quality recommended for gamer's device.
@@ -28,7 +34,7 @@ The :code:`GetQuality` method retrieves (from Backend) the quality recommended f
     using System.Collections;
 
     public class ExampleClass : MonoBehaviour {
-        Brainztorm.Quality.GetQuality();
+        Brainztorm.Quality.GetQuality(callback);
 
         private void callback(int qualityLevel)
         {
@@ -36,18 +42,70 @@ The :code:`GetQuality` method retrieves (from Backend) the quality recommended f
         }
     }
 
+When you use :code:`GetQuality` method, you get a response as follow:
+
+.. code-block:: javascript
+
+    {
+        "code": "NoError",
+        "data": [
+            {
+                "type": "GetQuality",
+                "pos": 0,
+                "data": {
+                    "quality": 4,
+                    "optimal": 2,
+                    "resolution": 0.25,
+                    "criticalFpsThreshold": 10
+                }
+            }
+        ]
+    }
+
+- **quality**: is the gamer's custom choosen quality.
+- **optimal**: is the recommended quality by Brainztorm.
+- **resolution**: is the recommended resolution by Brainztorm.
+- **criticalFpsThreshold**: 
+
 Set preferred quality
 ~~~~~~~~~~~~~~~~~~~~~
-Gamers can set the quality overwriting the recommended by Brainztorm. If you choose provide 
-your players with this feature, use the :code:`SetQuality` method.
+Gamers can set the quality level overwriting the recommended by Brainztorm. If you choose 
+provide your players with this feature, use the :code:`SetQuality` method.
 
 .. code-block:: c#
 
     //Establish FAST quality
     Brainztorm.Quality.SetQuality(1);
 
-    //For persisting this change in Backend, pass true as 2nd parameter
+The default behaviour of :code:`SetQuality` method don't send this change to the Server. 
+For persisting the chosen quality level in Backend, pass true as 2nd parameter.
+
+.. code-block:: c#
+
+    //Establish FAST quality and persist in backend
     Brainztorm.Quality.SetQuality(1, true);
+
+The quality level is sent to Backend through the Communications module. The typical JSON 
+payload looks like: 
+
+.. code-block:: javascript
+
+    Host: demo.brainztorm.com/v1/user/execute/<userId>
+
+    {
+        "UUID": "<UUID>",
+        "start": false,
+        "transactions": [
+            {
+            "pos": 0,
+            "data": {
+                "quality": 2,
+                "type": "SetQuality"
+            },
+            "elapsedTime": 0
+            }
+        ]
+    }
 
 Quality Profiling
 ~~~~~~~~~~~~~~~~~
@@ -61,5 +119,20 @@ You can set the interval in seconds for sending data to Backend through
 
 .. image:: images/settings.png
 
-.. _Quality Settings: https://docs.unity3d.com/Manual/class-QualitySettings.html
+Each time the interval reaches, it send data to the Server as follow:
+
+.. code-block:: javascript
+
+    {
+        "frames": 12439,
+        "time": 120,
+        "type": "SendQuality",
+        "scene": "Demo Quality",
+        "criticals": 0,
+        "resolution": 0.25,
+        "qualityLevel": 2
+    }
+
+.. _API Reference: 
+.. _Unity Quality Settings: https://docs.unity3d.com/Manual/class-QualitySettings.html
 .. _Brainztorm Settings Menu: #
