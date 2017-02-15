@@ -19,3 +19,4 @@ Table of Contents
    manual/variables/server
    manual/resources/client
    manual/resources/server
+   manual/quality/client
