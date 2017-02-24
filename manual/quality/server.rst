@@ -21,7 +21,7 @@ Simple       2      QUARTER  0.25
 Good         3
 Beautiful    4    
 Fantastic    5
-Unsupported  6
+Unsupported  -1
 ===========  =====  =======  =====
 
 If you expand the device row, you will find detailed information about it:
