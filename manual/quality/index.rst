@@ -5,7 +5,7 @@ Quality
 ************
 Introduction
 ************
-The Quality module laverage `Unity Quality Settings`_ for easily monitors game performance 
+The Quality module leverage `Unity Quality Settings`_ for easily monitors game performance 
 and change settings on the fly based on a per-device profiling. Quality sets the 
 game's visual performance, avoiding the complexity from managing many screen sizes, 
 resolutions, graphics cards, memory and other particular characteristics from each brand 

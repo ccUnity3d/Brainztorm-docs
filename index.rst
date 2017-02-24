@@ -9,6 +9,7 @@ Table of Contents
 .. toctree::
    :maxdepth: 3
    
+   manual/localization/index
    manual/communications/index
    manual/variables/index
    manual/errors/index
