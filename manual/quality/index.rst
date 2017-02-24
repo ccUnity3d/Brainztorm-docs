@@ -1,6 +1,6 @@
-##############
-Quality Module
-##############
+#######
+Quality
+#######
 
 ************
 Introduction
