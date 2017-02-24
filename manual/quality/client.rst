@@ -14,13 +14,13 @@ After, in your code you can access the static members through the provided class
 .. note::
 
     For debugging purposes, it's recommended you activate the Quality Log in the core 
-    module Logger, through the `Brainztorm Settings Menu`_.
+    module Logging, through the `Brainztorm Settings Menu`_.
 
 Setting recommended quality
 ===========================
 During module initialization, it automatically fetch from the server the recommended quality
 for the current device.
-If you activated the Quality Logger, you can see the entire logs in Unity Console showing the 
+If you activated the Quality Logging, you can see the entire logs in Unity Console showing the 
 initial request and response containing the :code:`GetQuality` type as follow:
 
 .. code-block:: javascript
@@ -68,13 +68,21 @@ The respsonse data means:
 
 Using Quality API
 =================
-Quality provide three read-only properties: :code:`CurrentQuality`, :code:`OptimalQuality` 
-and :code:`Resolution`. One method :code:`Ready` for executing instructions after module 
-is completely ready. And exposes three Event types:
+:code:`Brainztorm.Quality` provide the following members to interact with the module:
 
-- OnReady: when module is completely loaded.
-- OnQualityChanged: when quality has been changed by a response from server.
-- OnDeviceNotSupported: if response from server establish that current device is unsupported, this method will be triggered. 
+Read-only properties: :code:`CurrentQuality`, :code:`OptimalQuality` and :code:`Resolution`.
+
+Methods:
+
+- :code:`Ready`: for executing instructions after module is completely ready.
+- :code:`Subscribe`: attach listeners to module events.
+- :code:`Unsubscribe`: detach listeners previously attached to event manager.
+
+Event types:
+
+- :code:`OnReady`: executes when module is completely loaded.
+- :code:`OnQualityChanged`: fired after quality has been changed by a response from server.
+- :code:`OnDeviceNotSupported`: if response from server establish that current device is unsupported, this method will be triggered. 
 
 We strongly recommend take advantage of Ready method for accessing the module properties. 
 This ensure the response from server is done and the module has set the current quality 
