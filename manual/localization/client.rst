@@ -56,7 +56,7 @@ During module initialization, it automatically loads a default "EN" dictionary e
         ]
     }
 
-The respsonse data means:
+The repsonse data means:
 
 - **url**: 
 - **urlFallback**: 
