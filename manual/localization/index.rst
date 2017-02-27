@@ -6,10 +6,10 @@ Localization
 Introduction
 ************
 The Localization module is part of `Brainztorm Core Modules`_. It facilitates the 
-internationalization of your game by providing dictionaries for translating your content.
+internationalization of your game by providing dictionaries for translating its content.
 Basically, the dictionaries are JSON files for each language you want to support. These 
-JSON files are composed by key-value pairs where key is the attribute to be referenced into 
-your scripts, and the value represents the translation in the corresponding language. 
+JSON files are composed by key-value pairs where *key* is the attribute to be referenced into 
+your scripts, and the *value* represents the translation in the corresponding language. 
 A common dictionary looks like:
 
 .. code-block:: javascript
@@ -25,6 +25,10 @@ A common dictionary looks like:
 
 As you can see in the above snippet, it is possible to make use of parameter specifiers  
 in the *value part* of the dictionary for change the text dynamically.
+
+Localization can be described in this diagram:
+
+.. image:: images/localization_diagram.png
 
 *******
 Content
