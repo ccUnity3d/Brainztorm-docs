@@ -7,7 +7,9 @@ Localization Unity SDK
 **********
 How to use
 **********
-It's a core module so it doesn't need to be activated, its functionality is provided out-of-the-box. A :code:`Brainztorm.Localization` class is provided for accessing the static members.
+It's a core module so it doesn't need to be activated, its functionality is provided 
+out-of-the-box. A :code:`Brainztorm.Localization` class is provided for accessing the 
+static members.
 
 .. note::
 
@@ -16,7 +18,11 @@ It's a core module so it doesn't need to be activated, its functionality is prov
 
 Initial loading
 ===============
-During module initialization, it automatically loads a default "EN" dictionary embedded locally. Next, it fetches from the server the localization data based on current language device configuration. If you've activated the Localization Logging, you can see the entire logs in Unity Console showing the  initial request and response including the :code:`GetLocaleOptions` type as follow:
+During module initialization, it automatically loads a default "EN" dictionary embedded locally. 
+Next, it fetches from the server the localization data based on current language device 
+configuration. If you've activated the Localization Logging, you can see the entire logs 
+in Unity Console showing the  initial request and response including the 
+:code:`GetLocaleOptions` type as follow:
 
 .. code-block:: javascript
 
@@ -84,7 +90,9 @@ Event types:
 - :code:`OnReady`: executes when module is completely loaded.
 - :code:`OnGotLanguageData`: fired after language file has been downloaded from server.
 
-We strongly recommend to take advantage of the Ready method to access the module properties. This ensure the response from server is done and the module has properly set the expected quality and resolution. Take a look at the following example:
+We strongly recommend to take advantage of the Ready method to access the module properties. 
+This ensure the response from server is done and the module has properly set its members. 
+Take a look at the following example:
 
 .. code-block:: c#
 
