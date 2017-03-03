@@ -9,11 +9,12 @@ Table of Contents
 .. toctree::
    :maxdepth: 3
    
-   manual/localization/index
    manual/communications/index
    manual/variables/index
+   manual/localization/index
    manual/errors/index
    manual/users/index
    manual/resources/index
    manual/popups/index
    manual/quality/index
+   manual/push_notifications/index
