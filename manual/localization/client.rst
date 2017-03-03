@@ -76,11 +76,11 @@ Using Localization API
 ======================
 :code:`Brainztorm.Localization` provide the following members to interact with the module:
 
-Read-only property :code:`CurrentLocale` for retrieving the current locale.
+Read-only properties :code:`CurrentLanguage` and :code:`DefaultLanguage` for retrieving the current and default language respectively.
 
 Methods:
 
-- :code:`TranslateKey`: translate a key.
+- :code:`Localize`: translate a key.
 - :code:`Ready`: for executing instructions after module is completely ready.
 - :code:`Subscribe`: attach listeners to module events.
 - :code:`Unsubscribe`: detach listeners previously attached to event manager.
@@ -106,8 +106,9 @@ Take a look at the following example:
 
         private void OnLocalizationReady()
         {
-            Debug.Log("Current Locale is: " + BzLocalization.CurrentLocale);
-            Debug.Log("KEY: " + BzLocalization.TranslateKey("KEY"));
+            Debug.Log("Current Language is: " + BzLocalization.CurrentLanguage);
+            Debug.Log("Default Language is: " + BzLocalization.DefaultLanguage);
+            Debug.Log("KEY: " + BzLocalization.Localize("KEY"));
         }
     }
 
