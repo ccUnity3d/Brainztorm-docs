@@ -17,4 +17,5 @@ Table of Contents
    manual/resources/index
    manual/popups/index
    manual/quality/index
+   manual/inbox/index
    manual/push_notifications/index
