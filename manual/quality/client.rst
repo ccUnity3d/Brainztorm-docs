@@ -70,13 +70,12 @@ Using Quality API
 =================
 :code:`Brainztorm.Quality` provide the following members to interact with the module:
 
-Read-only properties: :code:`CurrentQuality`, :code:`OptimalQuality` and :code:`Resolution`.
+Read-only properties: :code:`CurrentQuality`, :code:`OptimalQuality`, :code:`Resolution` 
+and :code:`IsReady`.
 
-Methods:
+.. Methods:
 
-- :code:`Ready`: for executing instructions after module is completely ready.
-- :code:`Subscribe`: attach listeners to module events.
-- :code:`Unsubscribe`: detach listeners previously attached to event manager.
+.. - :code:`SetQuality`: changes the current quality and optionally save change in the server.
 
 Event types:
 
@@ -84,7 +83,7 @@ Event types:
 - :code:`OnQualityChanged`: fired after quality has been changed by a response from server.
 - :code:`OnDeviceNotSupported`: if response from server establish that current device is unsupported, this method will be triggered. 
 
-We strongly recommend take advantage of Ready method for accessing the module properties. 
+We strongly recommend take advantage of OnReady event for accessing the module properties. 
 This ensure the response from server is done and the module has set the current quality 
 and resolution. Look the following example:
 
@@ -96,7 +95,7 @@ and resolution. Look the following example:
 
     public class ExampleClass : MonoBehaviour 
     {
-        BzQuality.Ready(OnQualityReady);
+        BzQuality.OnReady += OnQualityReady;
 
         private void OnQualityReady()
         {

@@ -76,21 +76,22 @@ Using Localization API
 ======================
 :code:`Brainztorm.Localization` provide the following members to interact with the module:
 
-Read-only properties :code:`CurrentLanguage` and :code:`DefaultLanguage` for retrieving the current and default language respectively.
+Read-only properties:
+
+- :code:`CurrentLanguage` for retrieving the current language.
+- :code:`DefaultLanguage` for retrieving the default language.
+- :code:`IsReady` returns :code:`true` if module is completely load, :code:`false` otherwise.
 
 Methods:
 
 - :code:`Localize`: translate a key.
-- :code:`Ready`: for executing instructions after module is completely ready.
-- :code:`Subscribe`: attach listeners to module events.
-- :code:`Unsubscribe`: detach listeners previously attached to event manager.
 
-Event types:
+Events:
 
 - :code:`OnReady`: executes when module is completely loaded.
-- :code:`OnGotLanguageData`: fired after language file has been downloaded from server.
+.. - :code:`OnGotLanguageData`: fired after language file has been downloaded from server.
 
-We strongly recommend to take advantage of the Ready method to access the module properties. 
+We strongly recommend to take advantage of the OnReady event to access the module properties. 
 This ensure the response from server is done and the module has properly set its members. 
 Take a look at the following example:
 
@@ -102,13 +103,15 @@ Take a look at the following example:
 
     public class ExampleClass : MonoBehaviour 
     {
-        BzLocalization.Ready(OnLocalizationReady);
+        BzLocalization.OnReady += OnLocalizationReady;
 
         private void OnLocalizationReady()
         {
             Debug.Log("Current Language is: " + BzLocalization.CurrentLanguage);
             Debug.Log("Default Language is: " + BzLocalization.DefaultLanguage);
-            Debug.Log("KEY: " + BzLocalization.Localize("KEY"));
+
+            //Translate a Brainztorm built-in key
+            Debug.Log("BRAINZTORM_ERROR_GENERIC: " + BzLocalization.Localize("BRAINZTORM_ERROR_GENERIC"));
         }
     }
 
