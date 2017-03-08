@@ -58,24 +58,24 @@ Using Push Notifications API
 :code:`Brainztorm.PushNotifications` provide the following members to interact 
 with the module:
 
-Read-only property :code:`NotificationID`, retrieves the unique ID for the game 
-in the current device.
+Attributes:
+- :code:`NotificationId`, read-only, retrieves an string with an unique ID 
+to register the current device in the Push Notifications Server.
+- :code:`IsRegistered`, read-only boolean to check the registration status.
 
-Methods:
-
+.. Methods:
+..
 - :code:`Ready`: for executing instructions after module is completely ready.
 - :code:`Subscribe`: attach listeners to module events.
 - :code:`Unsubscribe`: detach listeners previously attached to event manager.
 
-Event types:
+Events:
+.. - :code:`OnReady`: executes when module is completely loaded.
 
-- :code:`OnReady`: executes when module is completely loaded.
 - :code:`OnRegistered`: if the request for register the Notification ID is successfully.
 - :code:`OnError`: if registration request responses with error.
 
-We strongly recommend to take advantage of the Ready method to access the module properties. 
-This ensure the response from server is done and the module has properly set its members. 
-Take a look at the following example:
+In the following example, let's get the Notification ID using the :code:`OnRegistered` event:
 
 .. code-block:: c#
 
@@ -85,11 +85,17 @@ Take a look at the following example:
 
     public class ExampleClass : MonoBehaviour 
     {
-        BzPushNotifications.Ready(OnPushNotificationsReady);
+        BzPushNotifications.OnRegistered += LogSuccess;
+        BzPushNotifications.OnError += LogError;
 
-        private void OnPushNotificationsReady()
+        private void LogSuccess(string id)
         {
-            Debug.Log("Notification ID is: " + BzPushNotifications.NotificationID);
+            Debug.Log("Notification ID is: " + id);
+        }
+
+        private void LogError(string id)
+        {
+            Debug.LogError("Notification ID registration error.");
         }
     }
 
