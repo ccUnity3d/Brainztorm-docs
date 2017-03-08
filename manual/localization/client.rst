@@ -64,13 +64,13 @@ in Unity Console showing the  initial request and response including the
 
 The response data means:
 
-- **url**: 
-- **urlFallback**: 
-- **hash**: 
-- **defaultUrl**: 
-- **defaultUrlFallback**: 
-- **defaultHash**: 
-- **flush**: 
+- **url**: the URL to the requested language dictionary.
+- **urlFallback**: if dictionary cannot be downloaded from *url*, retry download from *urlFallback*.
+- **hash**: to compare internally if requested dictionary has changed.
+- **defaultUrl**: the URL to the default language dictionary.
+- **defaultUrlFallback**: if dictionary cannot be downloaded from *defaultUrl*, retry download from *defaultUrlFallback*.
+- **defaultHash**: to compare internally if default dictionary has changed.
+- **flush**: it especify if dictionaries must be flushed.
 
 Using Localization API
 ======================
