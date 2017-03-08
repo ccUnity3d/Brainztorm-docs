@@ -59,21 +59,21 @@ Using Push Notifications API
 with the module:
 
 Attributes:
-- :code:`NotificationId`, read-only, retrieves an string with an unique ID 
-to register the current device in the Push Notifications Server.
+
+- :code:`NotificationId`, read-only, retrieves an string with an unique ID to register the current device in the Push Notifications Server.
 - :code:`IsRegistered`, read-only boolean to check the registration status.
 
 .. Methods:
 ..
-- :code:`Ready`: for executing instructions after module is completely ready.
-- :code:`Subscribe`: attach listeners to module events.
-- :code:`Unsubscribe`: detach listeners previously attached to event manager.
+    - :code:`Ready`: for executing instructions after module is completely ready.
+    - :code:`Subscribe`: attach listeners to module events.
+    - :code:`Unsubscribe`: detach listeners previously attached to event manager.
 
 Events:
-.. - :code:`OnReady`: executes when module is completely loaded.
 
 - :code:`OnRegistered`: if the request for register the Notification ID is successfully.
 - :code:`OnError`: if registration request responses with error.
+.. - :code:`OnReady`: executes when module is completely loaded.
 
 In the following example, let's get the Notification ID using the :code:`OnRegistered` event:
 

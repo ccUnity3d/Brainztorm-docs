@@ -63,6 +63,7 @@ Using Inbox Messages API
 Methods:
 
 - :code:`Ready`: for executing instructions after module is completely ready.
+- :code:`GetUnreadInbox`: get the quantity of unread messages.
 
 Event types:
 
