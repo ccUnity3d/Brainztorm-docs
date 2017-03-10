@@ -1,20 +1,16 @@
-Popups del Cliente
-================
+################
+Popups Unity SDK
+################
 
-Introducción
-------------
-Usualmente los usuarios necesitan ver notificaciones de los eventos en el juego.
-Este componente, provee unos cuantos tipos de ventana para mostrarle al usuario eventos del juego.
+`API Reference`_
 
-.. image:: images/popups.png
+**********
+How to use
+**********
+Popups component is a core module so it doesn't need to be activated, its functionality is provided 
+out-of-the-box. A :code:`Brainztorm.Popups` class is provided for accessing the static members.
 
-Un ejemplo de esto, es cuando ocurre un evento que afecta directamente el flujo del juego, como un error de
-conexión, o simplemente, se solicita que el usuario ingrese un texto para una validación de datos.
-
-Modo de Uso
------------
-El componente de popups es core, es decir que está siempre presente en Brainztorm sin que el usuario pueda encenderlo
-o apagarlo. Para el uso de este componente, es necesario crear una instancia de la clase del popup que el usuario
+Para el uso de este componente, es necesario crear una instancia de la clase del popup que el usuario
 desee mostrar, y mostrarlo a través de la interface *IPopupsDisplayer*, por ejemplo:
 
 .. code-block:: c#
