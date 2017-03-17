@@ -7,65 +7,63 @@ Popups Unity SDK
 **********
 How to use
 **********
-Popups component is a core module so it doesn't need to be activated, its functionality is provided 
-out-of-the-box. A :code:`Brainztorm.Popups` class is provided for accessing the static members.
-
-Para el uso de este componente, es necesario crear una instancia de la clase del popup que el usuario
-desee mostrar, y mostrarlo a través de la interface *IPopupsDisplayer*, por ejemplo:
+Popups component is a core module so it doesn't need to be activated. To use this component 
+it's necessary to create an instance from popup class you want to display, and show it 
+through the :code:`IPopupsDisplayer` interface:
 
 .. code-block:: c#
 
-	[Inject]
-	private IPopupsDisplayer popUpDisplayer;
+    [Inject]
+    private IPopupsDisplayer popUpDisplayer;
 
-	private void ShowSimplePopup()
-	{
-		SimplePopupData popupData = new SimplePopupData();
-		popupData.TitleLabel.Text.SetPlainText("Basic Popup Title");
-		popupData.DescriptionLabel.Text.SetPlainText("Basic Popup Description");
+    private void ShowSimplePopup()
+    {
+        SimplePopupData popupData = new SimplePopupData();
+        popupData.TitleLabel.Text.SetPlainText("Basic Popup Title");
+        popupData.DescriptionLabel.Text.SetPlainText("Basic Popup Description");
 
-		popupData.AcceptButton.IsEnabled = true;
-		popupData.AcceptButton.Label.Text.SetPlainText("Accept");
+        popupData.AcceptButton.IsEnabled = true;
+        popupData.AcceptButton.Label.Text.SetPlainText("Accept");
 
-		popupData.DeclineButton.IsEnabled = true;
-		popupData.DeclineButton.Label.Text.SetPlainText("Decline");
+        popupData.DeclineButton.IsEnabled = true;
+        popupData.DeclineButton.Label.Text.SetPlainText("Decline");
 
-		popUpDisplayer.OpenOrEnqueue(popupData);
-	}
+        popUpDisplayer.OpenOrEnqueue(popupData);
+    }
 
-Este fragmento de código dará como resultado un popup como este:
+The above snippet produces the following popup:
 
 .. image:: images/basic_popup_example.png
 
-El usuario también puede crear sus propios popups personalizados y modificar el skin de los que
-ofrece el SDK desde el editor. Para crear popups personalizados, el usuario puede crear una clase
-que herede de la clase SimplePopup, y un controlador para el tipo de popup que se debe añadir al
-gameobject del popup que el usuario acaba de crear, de la siguiente manera:
+You can create your own customized popups and also modify built-in popups' skin from Editor. 
+To create customized popups, you have to create an inherit class from :code:`SimplePopupData` 
+class, and a type popup's controller that will be attached to customized popup's GameObject. 
+Look the code below:
 
 .. code-block:: c#
 
-  public class ExamplePopupData : SimplePopupData
+  public class ExamplePopupData: SimplePopupData
   {
     //
   }
 
-  public class ErrorReportPopupHandler : PopupDataHandlerBase<ExamplePopupData>
+  public class ExamplePopupHandler: PopupDataHandlerBase<ExamplePopupData>
   {
-      protected override void Setup (ExamplePopupData popupData)
+      protected override void Setup(ExamplePopupData popupData)
       {
-          base.Setup (popupData);
+          base.Setup(popupData);
       }
   }
 
-  Una vez creado el popup, al momento de agregar el controlador, esté añadira automaticamente los
-  componentes *Popup* y *BackNavigationObject* los cuales son importantes para la navegación de las
-  ventanas. Acto seguido el prefab debe agregarse a la lista de popups de Brainztorm que están
-  disponibles en el juego:
+Una vez creado el popup, al momento de agregar el controlador, esté añadira automaticamente los
+componentes :code:`Popup`, :code:`ObjectActivator` y :code:`BackNavigationObject` los cuales son importantes para la navegación de las
+ventanas. Acto seguido el prefab debe agregarse a la lista de popups de Brainztorm que están
+disponibles en el juego:
 
-  .. image:: images/popup_prefabs_settings.png
+.. image:: images/popup_prefabs_settings.png
 
-  Componentes de los Popups
-  -------------------------
+Componentes de los Popups
+-------------------------
 
 Para construir los popups, es necesario hacerlo teniendo en cuenta los siguientes componentes
 que provee el SDK:
