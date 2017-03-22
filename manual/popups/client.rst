@@ -35,154 +35,185 @@ The above snippet produces the following popup:
 
 .. image:: images/basic_popup_example.png
 
-You can create your own customized popups and also modify built-in popups' skin from Editor. 
-To create customized popups, you have to create an inherit class from :code:`SimplePopupData` 
-class, and a type popup's controller that will be attached to customized popup's GameObject. 
+Creating a Custom Popup
+=======================
+
+.. warning::
+
+    Although it's possible modify directly the built-in popups prefabs, this is 
+    considered a bad practice, because your changes could be overwriten and dropped 
+    if Brainztorm is updated. Instead, you can make a copy in your own assets directory.
+
+To create customized popups, you have to create at least two scripts:
+
+* An inherited class from :code:`SimplePopupData` that represents the popup's characteristics.
+* A controller class extended from :code:`PopupDataHandlerBase<T>`.
+
+This controller class must to receive your custom :code:`SimplePopupData` implementation. 
 Look the code below:
 
 .. code-block:: c#
 
-  public class ExamplePopupData: SimplePopupData
-  {
-    //
-  }
+    //ExamplePopupData.cs
+    public class ExamplePopupData: SimplePopupData
+    {
+        //Popup properties definition
+    }
 
-  public class ExamplePopupHandler: PopupDataHandlerBase<ExamplePopupData>
-  {
-      protected override void Setup(ExamplePopupData popupData)
-      {
-          base.Setup(popupData);
-      }
-  }
+    //ExamplePopupHandler.cs
+    public class ExamplePopupHandler: PopupDataHandlerBase<ExamplePopupData>
+    {
+        protected override void Setup(ExamplePopupData popupData)
+        {
+            base.Setup(popupData);
+        }
+    }
 
-Una vez creado el popup, al momento de agregar el controlador, esté añadira automaticamente los
-componentes :code:`Popup`, :code:`ObjectActivator` y :code:`BackNavigationObject` los cuales son importantes para la navegación de las
-ventanas. Acto seguido el prefab debe agregarse a la lista de popups de Brainztorm que están
-disponibles en el juego:
+Afterwards, the controller has to be attached to popup's root GameObject. 
+When you attach the script, it automatically adds the components :code:`Popup`, 
+:code:`ObjectActivator` and :code:`BackNavigationObject` needed for window navigation.
+
+Brainztorm Popups Menu
+----------------------
+Brainztorm provides an easy way to create a simple popup in the scene that you can 
+customize to your needs. To get this, use the menu GameObject - Brainztorm - Popups 
+as shown in the next image:
+
+.. image:: images/popups_menu.png
+
+Registering Common Popups
+-------------------------
+If you want your popup will be avaiable for all scenes in the game, the popup GameObject 
+must to become into a Prefab and attach it to Popups Brainztorm Settings. Simply add a 
+new slot and drag your popup prefab onto the avaiable slot. Look the image below:
 
 .. image:: images/popup_prefabs_settings.png
 
-Componentes de los Popups
--------------------------
+Popups Components
+=================
+To construct popups, you need to know the following components provided by Brainztorm SDK:
 
-Para construir los popups, es necesario hacerlo teniendo en cuenta los siguientes componentes
-que provee el SDK:
+PopUpLabelData
+--------------
+Text field within the popup, it can be enabled or disabled through the property 
+:code:`IsEnabled`. Its text value can be a localized or static value assigned with the 
+following methods respectively:
 
-PopUpLabelData.cs
-^^^^^^^^^^^^^^^^^
-Campo de texto estático dentro del popup, puede activarse o desactivarse mediante el campo *IsEnabled*,
-Su texto puede ser un valor localizado o un texto estático, el cual puede asignarse mediante los
-métodos *Text.SetLocalizationKey (string localizationKey, params object[] replacements)* o
-*Text.SetPlainText (string plainText, params object[] replacements)*.
+* :code:`Text.SetLocalizationKey(string localizationKey, params object[] replacements)` 
+* :code:`Text.SetPlainText (string plainText, params object[] replacements)`
 
-Su controlador es *PopupLabel.cs* y es el script que se debe agregar al componente de texto de
-Unity (UnityEngine.UI.Text) que quiere representar el Label dentro del popup.
-
-.. code-block:: c#
-
-	[Serializable]
-	public class PopupLabelData
-	{
-		[SerializeField]
-		private bool isEnabled = true;
-
-		[SerializeField]
-		private BrainztormString text = new BrainztormString();
-
-		public bool IsEnabled
-		{
-			get { return isEnabled; }
-			set { isEnabled = value; }
-		}
-
-		public BrainztormString Text
-		{
-			get { return text; }
-			set { text = value; }
-		}
-	}
-
-	[RequireComponent(typeof(Text))]
-	[DisallowMultipleComponent]
-	public class PopupLabel : MonoBehaviour
-	{
-		public void Setup(PopupLabelData data)
-		{
-      //
-		}
-	}
-
-PopupInputFieldData.cs
-^^^^^^^^^^^^^^^^^^^^^^
-Componente de texto que el usuario ingresa por pantalla, al igual que el componente
-PopupLabelData, este puede activarse o desactivarse desde la propiedad *IsEnabled*,
-sin embargo, este posee dos propiedades PopupLabelData, uno es el componente *FieldText*,
-que es el texto que el usuario ingresa desde el controlador, y la propiedad *Placeholder*,
-que es la marca de agua que se muestra en el campo de texto cuando este está vacío.
-
-Su controlador es *PopupInputField.cs* y es el script que se debe agregar al componente de input de
-Unity (UnityEngine.UI.InputField) que quiera representar el campo de texto dentro del popup.
+Its controller is :code:`PopupLabel`, this script must be attached to `Unity UI Text`_ 
+Component (UnityEngine.UI.Text) that represents the *Label* in the popup.
 
 .. code-block:: c#
 
-	[Serializable]
-	public class PopupInputFieldData
-	{
-		[SerializeField]
-		private bool isEnabled = true;
-
-		[SerializeField]
-		private PopupLabelData fieldText = new PopupLabelData();
-
-		[SerializeField]
-		private PopupLabelData placeHolder = new PopupLabelData();
-
-		public bool IsEnabled
-		{
-			get { return isEnabled; }
-			set { isEnabled = value; }
-		}
-
-		public PopupLabelData FieldText
-		{
-			get { return fieldText; }
-		}
-
-		public PopupLabelData Placeholder
-		{
-			get { return placeHolder; }
-		}
-	}
-
-  [RequireComponent(typeof(Text))]
-  [DisallowMultipleComponent]
-  public class PopupInputField : MonoBehaviour
-  {
-		[SerializeField]
-		private PopupLabel placeHolder;
-
-		[SerializeField]
-		private PopupLabel inputFieldText;
-
-		[SerializeField]
-		private bool autoSelect = true;
-
-    public void Setup(PopupInputFieldData data)
+    [Serializable]
+    public class PopupLabelData
     {
-			placeHolder.Setup(data.Placeholder);
-			inputFieldText.Setup(data.FieldText);
+        [SerializeField]
+        private bool isEnabled = true;
+
+        [SerializeField]
+        private BrainztormString text = new BrainztormString();
+
+        public bool IsEnabled
+        {
+            get { return isEnabled; }
+            set { isEnabled = value; }
+        }
+
+        public BrainztormString Text
+        {
+            get { return text; }
+            set { text = value; }
+        }
     }
-  }
 
-PopupButtonData.cs
-^^^^^^^^^^^^^^^^^^^^^^
-Componente de tipo botón, como los demás componentes, puede habilitarse o inhabilitarse desde la propiedad
-*IsEnabled*, además de esto, posee una propiedad PopupLabelData, que es el texto que contiene el botón, y una propiedad
-llamada *PresCallback*, un evento de tipo Action, que es la acción que se efectuará al presionar el botón; la propiedad
-*ClosePopupOnPress*, tiene la función de cerrar o no el popup cuando el botón sea presionado.
+    [RequireComponent(typeof(Text))]
+    [DisallowMultipleComponent]
+    public class PopupLabel : MonoBehaviour
+    {
+        public void Setup(PopupLabelData data)
+        {
+            //Statements to setup component 
+        }
+    }
 
-Su controlador es *PopupButton.cs* y es el script que se debe agregar al componente de botón de
-Unity (UnityEngine.UI.Button) que quiere representar el botón dentro del popup.
+PopupInputFieldData
+-------------------
+Input text field within the popup, similary to :code:`PopupLabelData` component,
+this can be enabled or disabled with :code:`ISEnabled` property, however, 
+:code:`PopupInputFieldData` has two :code:`PopupLabelData` properties:
+
+* :code:`FieldText`, text value typed by user.
+* :code:`Placeholder`, watermark shown in the input field when is empty.
+
+Its controller is :code:`PopupInputField`, this script must be attached to 
+`Unity UI Input Field`_ Component (UnityEngine.UI.InputField) that represents 
+the *Input Field* in the popup.
+
+.. code-block:: c#
+
+    [Serializable]
+    public class PopupInputFieldData
+    {
+        [SerializeField]
+        private bool isEnabled = true;
+
+        [SerializeField]
+        private PopupLabelData fieldText = new PopupLabelData();
+
+        [SerializeField]
+        private PopupLabelData placeHolder = new PopupLabelData();
+
+        public bool IsEnabled
+        {
+            get { return isEnabled; }
+            set { isEnabled = value; }
+        }
+
+        public PopupLabelData FieldText
+        {
+            get { return fieldText; }
+        }
+
+        public PopupLabelData Placeholder
+        {
+            get { return placeHolder; }
+        }
+    }
+
+    [RequireComponent(typeof(Text))]
+    [DisallowMultipleComponent]
+    public class PopupInputField : MonoBehaviour
+    {
+        [SerializeField]
+        private PopupLabel placeHolder;
+
+        [SerializeField]
+        private PopupLabel inputFieldText;
+
+        [SerializeField]
+        private bool autoSelect = true;
+
+        public void Setup(PopupInputFieldData data)
+        {
+            placeHolder.Setup(data.Placeholder);
+            inputFieldText.Setup(data.FieldText);
+        }
+    }
+
+PopupButtonData
+---------------
+Button component, like the previous, can be enabled or disabled through :code:`IsEnabled` 
+property, also it has the following properties:
+
+* :code:`PopupLabelData`, the text shown in the button.
+* :code:`PresCallback`, Action type event triggered when button is pressed.
+* :code:`ClosePopupOnPress`, determine whether popup will be closed when button is pressed.
+
+Its controller is :code:`PopupButton`, this script must be attached to `Unity UI Button`_ 
+Component (UnityEngine.UI.Button) that represents the *Button* in the popup.
 
 .. code-block:: c#
 
@@ -191,8 +222,10 @@ Unity (UnityEngine.UI.Button) que quiere representar el botón dentro del popup.
     {
         [SerializeField]
         private bool isEnabled = true;
+
         [SerializeField]
         private bool closePopupOnPress = true;
+
         [SerializeField]
         private PopupLabelData label = new PopupLabelData ();
 
@@ -216,7 +249,7 @@ Unity (UnityEngine.UI.Button) que quiere representar el botón dentro del popup.
         }
     }
 
-    [RequireComponent (typeof (Button))]
+    [RequireComponent(typeof(Button))]
     [DisallowMultipleComponent]
     public class PopupButton : MonoBehaviour
     {
@@ -225,20 +258,24 @@ Unity (UnityEngine.UI.Button) que quiere representar el botón dentro del popup.
 
         private Button button;
 
-        public void Setup (PopupButtonData data, Action close)
+        public void Setup(PopupButtonData data, Action close)
         {
-            gameObject.SetActive (data.IsEnabled);
-            SetupOnClick (data, close);
-            SetupLabel (data);
+            gameObject.SetActive(data.IsEnabled);
+            SetupOnClick(data, close);
+            SetupLabel(data);
         }
 
-        private void SetupOnClick (PopupButtonData data, Action close)
+        private void SetupOnClick(PopupButtonData data, Action close)
         {
-          //
+            //Statements to setup click event 
         }
 
-        private void SetupLabel (PopupButtonData data)
+        private void SetupLabel(PopupButtonData data)
         {
-          //
+            //Statements to setup label 
         }
     }
+
+.. _Unity UI Text: https://docs.unity3d.com/ScriptReference/UI.Text.html
+.. _Unity UI Input Field: https://docs.unity3d.com/ScriptReference/UI.InputField.html
+.. _Unity UI Button: https://docs.unity3d.com/ScriptReference/UI.Button.html
