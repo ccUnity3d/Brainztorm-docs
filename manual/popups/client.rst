@@ -99,8 +99,8 @@ Text field within the popup, it can be enabled or disabled through the property
 :code:`IsEnabled`. Its text value can be a localized or static value assigned with the 
 following methods respectively:
 
-* :code:`Text.SetLocalizationKey(string localizationKey, params object[] replacements)` 
-* :code:`Text.SetPlainText (string plainText, params object[] replacements)`
+- :code:`Text.SetLocalizationKey(string localizationKey, params object[] replacements)` 
+- :code:`Text.SetPlainText (string plainText, params object[] replacements)`
 
 Its controller is :code:`PopupLabel`, this script must be attached to `Unity UI Text`_ 
 Component (UnityEngine.UI.Text) that represents the *Label* in the popup.
@@ -145,8 +145,8 @@ Input text field within the popup, similary to :code:`PopupLabelData` component,
 this can be enabled or disabled with :code:`ISEnabled` property, however, 
 :code:`PopupInputFieldData` has two :code:`PopupLabelData` properties:
 
-* :code:`FieldText`, text value typed by user.
-* :code:`Placeholder`, watermark shown in the input field when is empty.
+- :code:`FieldText`, text value typed by user.
+- :code:`Placeholder`, watermark shown in the input field when is empty.
 
 Its controller is :code:`PopupInputField`, this script must be attached to 
 `Unity UI Input Field`_ Component (UnityEngine.UI.InputField) that represents 
@@ -208,9 +208,9 @@ PopupButtonData
 Button component, like the previous, can be enabled or disabled through :code:`IsEnabled` 
 property, also it has the following properties:
 
-* :code:`PopupLabelData`, the text shown in the button.
-* :code:`PresCallback`, Action type event triggered when button is pressed.
-* :code:`ClosePopupOnPress`, determine whether popup will be closed when button is pressed.
+- :code:`PopupLabelData`, the text shown in the button.
+- :code:`PresCallback`, Action type event triggered when button is pressed.
+- :code:`ClosePopupOnPress`, determine whether popup will be closed when button is pressed.
 
 Its controller is :code:`PopupButton`, this script must be attached to `Unity UI Button`_ 
 Component (UnityEngine.UI.Button) that represents the *Button* in the popup.

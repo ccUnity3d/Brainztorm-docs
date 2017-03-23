@@ -2,6 +2,8 @@
 Items Unity SDK
 ###############
 
+`API Reference`_
+
 **********
 How to use
 **********
@@ -54,44 +56,63 @@ initial request and response containing the :code:`GetItems` type as follow:
                         },
                         "name": "Gold",
                         "icon": "resource/gold/icon"
-                    },
-                    {
-                        "type": "resources",
-                        "amount": 2,
-                        "_id": {
-                            "$id": "58bdbf6297caff78724f9c64"
-                        },
-                        "code": {
-                            "$id": "560abe2391bb6f1076df8581"
-                        },
-                        "name": "Rations",
-                        "icon": "resource/ration/icon"
-                    },
-                    {
-                        "type": "resources",
-                        "amount": 2,
-                        "_id": {
-                            "$id": "58bdbf6297caff78724f9c65"
-                        },
-                        "code": {
-                            "$id": "560abe2391bb6f1076df8582"
-                        },
-                        "name": "Thunder",
-                        "icon": "resource/thunder/icon"
-                    },
-                    {
-                        "type": "resources",
-                        "amount": 0,
-                        "_id": {
-                            "$id": "58bdbf6297caff78724f9c66"
-                        },
-                        "code": {
-                            "$id": "548b1b359f30d8ad37e2ca05"
-                        },
-                        "name": "Void Stones",
-                        "icon": "resource/void_stone/icon"
                     }
                 ]
             }
         ]
     }
+
+The respsonse data means:
+
+- **type**: the item type.
+- **amount**: item quantity shown in the game.
+- **_id**: user-item relation's identifier in backend database.
+- **code**: item code in backend database.
+- **name**: item name shown in the game.
+- **icon**: path to item icon to show in the game.
+
+Using Items API
+===============
+:code:`Brainztorm.Items` provide the following members to interact with the module:
+
+Methods:
+
+- :code:`GetItems`, fetches items from server for current user. 
+- :code:`SetItem`, increase or decrease the amount of the given item.
+
+.. code-block:: c#
+
+    using UnityEngine;
+    using System.Collections.Generic;
+    using Brainztorm.ItemsModule.Models;
+
+    public class ExampleClass : MonoBehaviour 
+    {
+        void Start()
+        {
+            Brainztorm.Items.GetItems(OnResponseGetItems, false);
+        }
+
+        private void OnResponseGetItems(List<ItemData> data)
+        {
+            Debug.Log("Items count: " + data.Count.ToString());
+            //Statements to process data
+        }
+
+        private void AddItemAmount(ItemData item, int amountAdded)
+        {
+            //If amountAdded is negative, it will decrease the item quantity
+            Brainztorm.Items.SetItem(
+                item.type,
+                item.code,
+                amountAdded,
+                () => {
+                    Debug.Log(string.Format("New item amount: {0}", item.amount + amountAdded));
+                },
+                true
+            );
+        }
+    }
+
+.. _API Reference: #
+.. _Brainztorm Settings Menu: #
