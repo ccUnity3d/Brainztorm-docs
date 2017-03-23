@@ -19,3 +19,4 @@ Table of Contents
    manual/quality/index
    manual/inbox/index
    manual/push_notifications/index
+   manual/items/index
