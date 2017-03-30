@@ -1,42 +1,117 @@
-Client Users
-=====================
+###############
+Users Unity SDK
+###############
 
-Introduction
-------------
-Allows to keep track of players, their devices, social networks and other useful information.
-Also provides a unique way to identify players so other Brainztorm and game-specific components
-can rely on it to achieve different goals.
+`API Reference`_
 
-.. image:: images/users.png
+**********
+How to use
+**********
+It's a core module so it doesn't need to be activated, its functionality is provided 
+by default. A :code:`Brainztorm.Users` class is provided for accessing the static members.
 
-For example you can keep track of user's level, or unlocked characters. Most of Brainztorm components
-like store, quests, daily missions, and more are user dependent.
+.. note::
 
-How to use it
--------------
-You can get the current user id through the *IUserIds* interface
+    For debugging purposes, it's recommended to activate the Users Logs in the core 
+    module Logging, through the `Brainztorm Settings Menu`_.
+
+Once the session starts, a transaction request called :code:`GetUserData` is sent together 
+with the :code:`TransactionStarter`. The transaction starter contains the device's UUID and 
+social network ids if any is available; as well as the last user id used in this device. 
+The server searches for users linked with network ids, if none is found it tries to find 
+one that is linked to the current UUID. If the server fails to find a matching user, 
+creates one and links it to the UUID.
+
+.. image:: images/linking.png
+
+If you activated the Users Logging, you can see the entire logs in Unity Console showing the 
+initial request and response containing the :code:`GetUserData` type as follow:
+
+.. code-block:: javascript
+
+	//Request
+	{
+		"UUID": "<UUID>",
+		"start": true,
+		"transactions": [
+			{
+				"pos": 2,
+				"data": {
+					"type": "GetUserData"
+				},
+				"elapsedTime": 0
+			}
+		]
+	}
+
+	//Response
+	{
+		"code": "NoError",
+		"data": [
+			{
+				"type": "GetUserData",
+				"pos": 2,
+				"data": {
+					"sessionId": "bzfbe34ae84163f916d2cb",
+					"publicId": "19fb8bf8e9185170f844c2c0774983e8",
+					"userName": "",
+					"hashProfile": ""
+				}
+			}
+		]
+	}
+
+If for any reason, the server finds an user conflict, a resolution screen is shown to 
+the player and the dismissed user is errased.
+
+.. image:: images/conflict.png
+
+Using Users API
+===============
+:code:`Brainztorm.Users` provide the following members to interact with the module:
+
+Read-only properties: :code:`SessionId`, :code:`PublicId`, :code:`Name`, 
+:code:`HasChanged`, :code:`IsRegistered` and :code:`Logger`.
+
+Methods:
+
+- :code:`UpdateName`: allows to change the user name.
+- :code:`RegisterUser`: call to backend to register the current user.
+- :code:`RemoveUser`: call to backend to remove the current user.
+
+Events:
+
+- :code:`OnSetup`: triggered when *GetUserData* request is complete and successful.
+- :code:`OnChangedName`: occurs after :code:`UpdateName` execution is successful.
+
+Getting the User IDs
+--------------------
+You can get the current user IDs using the :code:`SessionId` and :code:`PublicId` properties:
 
 .. code-block:: c#
 
-  [Inject]
-  private IUserIds userIds;
+    using UnityEngine;
+    using System.Collections;
+    using BzUsers = Brainztorm.Users;
 
-  private void LogUserIds()
-  {
-    // Logs device unique identifier
-    Debug.Log(userIds.UUID);
+    public class ExampleClass : MonoBehaviour 
+    {
+        void Start()
+        {
+            Debug.Log("The User SessionId is: " + BzUsers.SessionId);
+            Debug.Log("The User PublicId is: " + BzUsers.PublicId);
+        }
+    }
 
-    // Logs linked user id for this device
-    Debug.Log(userIds.userId);
-  }
-
-The server knows the user id after the session is stablished, and neither transactions nor variables module need this id on your
-data files to keep track of them.
+The server knows the user id after the session is stablished, and neither transactions 
+nor variables module need this id on your data files to keep track of them.
 
 Username
-^^^^^^^^
-You can prompt users to change their username at any time, you can do so through the *IUserNameChanger* interface. If the player has
-a previously created username, this will be set as default value. Otherwise, the last linked social network id will be used as default.
+--------
+You can prompt users to change their username at any time, you can do so through the 
+*IUserNameChanger* interface. If the player has a previously created username, 
+this will be set as default value. Otherwise, the last linked social network id will 
+be used as default.
 
 .. code-block:: c#
 
@@ -58,8 +133,9 @@ a previously created username, this will be set as default value. Otherwise, the
     //...
   }
 
-The username popup checks different criteria such as duplicated names or profanity filters to validate the current name, this happens after the
-user stops typing for a small amount of time or once the submit button is pressed.
+The username popup checks different criteria such as duplicated names or profanity filters 
+to validate the current name, this happens after the user stops typing for a small amount 
+of time or once the submit button is pressed.
 
 .. image:: images/sdk-profanity-true.png
 
@@ -99,15 +175,3 @@ Also, you can access this information through the **ISocialManager** interface.
       Texture2D avatar = social.UserInfo.Avatar;
       // Show avatar
   }
-
-How it works
-------------
-Once the session starts, a transaction request called **GetUserData** is sent together with the **TransactionStarter**. The transaction starter contains the device's
-UUID and social network ids if any is available; as well as the last user id used in this device. The server searches for users linked with network ids, if none is found
-it tries to find one that is linked to the current UUID. If the server fails to find a matching user, creates one and links it to the UUID.
-
-.. image:: images/linking.png
-
-If for any reason, the server finds an user conflict, a resolution screen is shown to the player and the dismissed user is errased.
-
-.. image:: images/conflict.png
