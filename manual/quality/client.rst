@@ -77,7 +77,7 @@ and :code:`IsReady`.
 
 .. - :code:`SetQuality`: changes the current quality and optionally save change in the server.
 
-Event types:
+Events:
 
 - :code:`OnReady`: executes when module is completely loaded.
 - :code:`OnQualityChanged`: fired after quality has been changed by a response from server.

@@ -14,5 +14,5 @@ Content
 .. toctree::
     :maxdepth: 3
 
-    client.rst
     server.rst
+    client.rst

@@ -19,7 +19,7 @@ Content
 .. toctree::
     :maxdepth: 3
 
-    client.rst
     server.rst
+    client.rst
 
 .. _Unity Quality Settings: https://docs.unity3d.com/Manual/class-QualitySettings.html

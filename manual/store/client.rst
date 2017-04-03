@@ -1,40 +1,35 @@
-#################
-Quality Unity SDK
-#################
+###############
+Store Unity SDK
+###############
 
 `API Reference`_
 
 **********
 How to use
 **********
-For using this module, first you need activate it in `Brainztorm Settings Menu`_. 
-After, in your code you can access the static members through the provided class 
-:code:`Brainztorm.Quality`.
+For using this module, first you need activate it in `Brainztorm Settings Menu`_.
 
 .. note::
 
-    For debugging purposes, it's recommended you activate the Quality Log in the core 
+    For debugging purposes, it's recommended you activate the Store Log in the core 
     module Logging, through the `Brainztorm Settings Menu`_.
 
-Setting recommended quality
-===========================
-During module initialization, it automatically fetch from the server the recommended quality
-for the current device.
-If you activated the Quality Logging, you can see the entire logs in Unity Console showing the 
-initial request and response containing the :code:`GetQuality` type as follow:
+The Store module has the following process:
+
+1. During initialization phase, it sends an :code:`InitializeStore` transaction, 
+to prepare (if needed) the App Store or Google Play for In App Purchases (IAP):
 
 .. code-block:: javascript
 
     //Request
     {
         "UUID": "<UUID>",
-        "start": true,
+        "start": false,
         "transactions": [
-            ...
             {
-                "pos": 8,
+                "pos": 2,
                 "data": {
-                    "type": "GetQuality"
+                    "type": "InitializeStore"
                 },
                 "elapsedTime": 0
             }
@@ -45,126 +40,24 @@ initial request and response containing the :code:`GetQuality` type as follow:
     {
         "code": "NoError",
         "data": [
-            ...
             {
-                "type": "GetQuality",
-                "pos": 8,
+                "type": "InitializeStore",
+                "pos": 2,
                 "data": {
-                    "quality": 4,
-                    "optimal": 2,
-                    "resolution": 0.25,
-                    "criticalFpsThreshold": 10
+                    "iapReady": true,
+                    "iasReady": true,
+                    "count": 0
                 }
             }
         ]
     }
 
-The respsonse data means:
-
-- **quality**: is the current quality in the game.
-- **optimal**: is the recommended quality by Brainztorm.
-- **resolution**: is the recommended resolution by Brainztorm.
-- **criticalFpsThreshold**: threshold when FPS becomes critical for good game performance.
-
-Using Quality API
-=================
-:code:`Brainztorm.Quality` provide the following members to interact with the module:
-
-Read-only properties: :code:`CurrentQuality`, :code:`OptimalQuality`, :code:`Resolution` 
-and :code:`IsReady`.
-
-.. Methods:
-
-.. - :code:`SetQuality`: changes the current quality and optionally save change in the server.
-
-Event types:
-
-- :code:`OnReady`: executes when module is completely loaded.
-- :code:`OnQualityChanged`: fired after quality has been changed by a response from server.
-- :code:`OnDeviceNotSupported`: if response from server establish that current device is unsupported, this method will be triggered. 
-
-We strongly recommend take advantage of OnReady event for accessing the module properties. 
-This ensure the response from server is done and the module has set the current quality 
-and resolution. Look the following example:
-
-.. code-block:: c#
-
-    using UnityEngine;
-    using System.Collections;
-    using BzQuality = Brainztorm.Quality;
-
-    public class ExampleClass : MonoBehaviour 
-    {
-        BzQuality.OnReady += OnQualityReady;
-
-        private void OnQualityReady()
-        {
-            Debug.Log("Current Quality is: " + BzQuality.CurrentQuality);
-            Debug.Log("Optimal Quality is: " + BzQuality.OptimalQuality);
-            Debug.Log("Resolution is: " + BzQuality.Resolution);
-        }
-    }
-
-.. All the "Set preferred quality" section is commented
-.. 
-    Set preferred quality
-    =====================
-    Gamers can set the quality level overwriting the recommended by Brainztorm. If you choose 
-    provide your players with this feature, use the :code:`SetQuality` method.
-
-    .. code-block:: c#
-
-        //Establish FAST quality
-        Brainztorm.Quality.SetQuality(1);
-
-    The default behaviour of :code:`SetQuality` method don't send this change to the Server. 
-    For persisting the chosen quality level in Backend, pass true as 2nd parameter.
-
-    .. code-block:: c#
-
-        //Establish FAST quality and persist in backend
-        Brainztorm.Quality.SetQuality(1, true);
-
-    The quality level is sent to Backend through the Communications module. The typical JSON 
-    payload looks like: 
-
-    .. code-block:: javascript
-
-        Host: demo.brainztorm.com/v1/user/execute/<sessionId>
-
-        {
-            "UUID": "<UUID>",
-            "start": false,
-            "transactions": [
-                {
-                "pos": 0,
-                "data": {
-                    "quality": 2,
-                    "type": "SetQuality"
-                },
-                "elapsedTime": 0
-                }
-            ]
-        }
-
-Quality Profiling
-=================
-An important feature in Quality module is profiling. By this feature you can get vital 
-information about how your game behave across different devices. Profiling consist in 
-periodically send data to Backend for you can analize and take actions to improve your game. 
-This data include information of frames, scene, criticals, screen resolution and quality level.
-
-You can set the interval in seconds for sending data to Backend through 
-*Brainztorm Settings Menu -> Modules -> Quality*. The following image shows a 120 seconds interval.
-
-.. image:: images/settings.png
-
-Each time the interval reaches, it send data to the Server as follow:
+2. When the user clicks the Store button, it sends a :code:`GetStoreProducts` transaction
+for get the products list:
 
 .. code-block:: javascript
 
-    Host: demo.brainztorm.com/v1/user/execute/<sessionId>
-
+    //Request
     {
         "UUID": "<UUID>",
         "start": false,
@@ -172,18 +65,118 @@ Each time the interval reaches, it send data to the Server as follow:
             {
                 "pos": 0,
                 "data": {
-                    "frames": 4073,
-                    "time": 120,
-                    "type": "SendQuality",
-                    "scene": "Demo Quality",
-                    "criticals": 0,
-                    "resolution": 0.25,
-                    "qualityLevel": 2
+                    "hash": "",
+                    "type": "GetStoreProducts"
                 },
                 "elapsedTime": 0
             }
         ]
     }
+
+    //Response
+    {
+        "code": "NoError",
+        "data": [
+            {
+                "type": "GetStoreProducts",
+                "pos": 0,
+                "data": {
+                    "categories": [
+                        {
+                            "name": {
+                                "lockey": "STORE_CATEGORY_1_5845AE824EF06"
+                            },
+                            "icon": "",
+                            "identifier": "Resources",
+                            "products": [
+                                {
+                                    "_id": {
+                                        "$id": "5845ecaa97caff70097d8375"
+                                    },
+                                    "categoryId": {
+                                        "$id": "5845ae8297caff67e5363999"
+                                    },
+                                    "code": "Gold",
+                                    "icon": "",
+                                    "name": {
+                                        "lockey": "STORE_PRODUCT_1_5845ECAA3B72A"
+                                    },
+                                    "description": {
+                                        "lockey": "STORE_PRODUCT_1_5845ECAA3BA4B"
+                                    },
+                                    "iap": null,
+                                    "ias": {
+                                        "type": "Resources",
+                                        "code": {
+                                            "$id": "548b1b359f30d8ad37e2ca04"
+                                        },
+                                        "amount": 1000
+                                    },
+                                    "requirements": [],
+                                    "rewards": {
+                                        "type": "Resources",
+                                        "code": {
+                                            "$id": "548b1b359f30d8ad37e2ca04"
+                                        },
+                                        "amount": 5
+                                    },
+                                    "viewTemplate": "Resources",
+                                    "checksum": "e85ca9fabbd4bae0",
+                                    "new": false,
+                                    "available": true
+                                }
+                            ]
+                        }
+                    ],
+                    "hash": "07d01707b497e58f/ddffb82d9c5e1917"
+                }
+            }
+        ]
+    }
+
+Obtained this response, the store can be constructed and shown to the player.
+
+Using Store API
+===============
+Store is a self-executing module by convenience design. For this reason, its API is so 
+small, basicaly, the :code:`Brainztorm.Store` provide the following members to 
+interact with the module:
+
+Read-only properties: 
+
+- :code:`IsReady`: read-only boolean indicating if the module is completely loaded.
+- :code:`Logger`: returns the own logger object for this module.
+
+Events:
+
+- :code:`OnReady`, when the module is completely loaded.
+- :code:`OnPurchaseSucceeded`, when a purchase transaction will end with success.
+
+Creating a Store
+================
+An easy way to create a Store for your game is to use the provided GameObject Brainztorm 
+Store menu option. This option creates the neccessary objects into the scene hierarchy and 
+so the Store is ready to use with your server, afterwards you can customize as you like.
+
+.. image:: images/store_menu.png
+
+After using the menu above, the scene hierarchy looks like:
+
+.. image:: images/store_hierarchy.png
+
+In the scene you will see a default button to open the store view.
+
+.. image:: images/store_default_button.png
+
+To customize the button and the rest of the store, simply take a tour towards the game objects 
+and change the corresponding sprites as you like.
+
+Add products to Store
+---------------------
+Pending section...
+
+..
+    .. image:: images/store_settings.png
 
 .. _API Reference: #
 .. _Brainztorm Settings Menu: #

@@ -20,3 +20,4 @@ Table of Contents
    manual/inbox/index
    manual/push_notifications/index
    manual/items/index
+   manual/store/index
