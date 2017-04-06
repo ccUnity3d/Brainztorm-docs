@@ -19,5 +19,6 @@ Table of Contents
    manual/quality/index
    manual/inbox/index
    manual/push_notifications/index
+   manual/asset_bundles/index
    manual/items/index
    manual/store/index
