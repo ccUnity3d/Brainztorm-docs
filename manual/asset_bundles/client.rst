@@ -7,9 +7,10 @@ AssetBundles Unity SDK
 **********
 How to use
 **********
-For using this module, first you need activate it in `Brainztorm Settings Menu`_. 
-After, in your code you can access the static members through the provided class 
-:code:`Brainztorm.AssetBundles`.
+For using this module, first you need activate it in `Brainztorm Settings Menu`_ 
+and configure the neccesary attributes. See the image below:
+
+.. image:: images/asset_bundles_settings.png
 
 .. note::
 
@@ -59,20 +60,48 @@ The respsonse data means:
 
 - **clean**: if AssetBundle cache must be cleaned.
 - **url**: address from server hosting the bundles. It has the form *<URL>/<platform>/* where <URL> is the address configured in Admin Tools, and <platform> is the detected current execution platform, e.g., iOS, Android, PC, OSX, Web or Unity<XX>, this last one means you are working on Unity in dev mode, where <XX> is the Unity version you are using.
-- **parallelDownloadsCarrierData**: pending.
-- **parallelDownloadsLocalArea**: pending.
+- **parallelDownloadsCarrierData**: amount of parallel downloads when connected to carrier data network.
+- **parallelDownloadsLocalArea**: amount of parallel downloads when connected to Local Area Network (wired or WiFi).
 
 Using AssetBundles API
 ======================
 :code:`Brainztorm.AssetBundles` provide the following members to interact with the module:
 
-Read-only properties: 
+Properties: 
 
-- :code:`Logger`: returns the own logger object for this module.
+- :code:`Logger`: read-only property that returns the own logger object for this module.
+- :code:`MaxParallelLoads`: maximun parallel downloads for get asset bundles; 
 
 Methods:
 
-- :code:`ClearCache`: clears asset bundles cache.
+- :code:`LoadBundle`: IEnumerator method to be used with StartCoroutine. Loads the specified asset bundle name.
+- :code:`LoadBundles`: IEnumerator method to be used with StartCoroutine. Loads the specified array of asset bundle names.
+- :code:`SetProgressIndicator`: sets the progress indicator while loading bundles.
+- :code:`ResetProgress`: resets the load progress indicator.
+- :code:`LoadAssetFromBundle`: loads the specified asset from a bundle.
+- :code:`LoadMainOrSingleAssetFromBundle`: loads the main or single asset from a bundle.
+- :code:`Load`: load asset object type from bundle and triggers the passed callback when succeeded.
 - :code:`UnloadAll`: unloads from memory all previously loaded bundles.
 - :code:`UnloadBundle`: unload from memory the specified bundle.
+- :code:`ClearCache`: clears asset bundles cache.
 - :code:`GetAllAssetBundlesNames`: returns an array with current loaded bundles.
+
+The following example gets an Sprite called *"my_sprite"* from an asset bundle 
+called *"my_bundle"*:
+
+.. code-block:: c#
+
+    using UnityEngine;
+
+    public class ExampleClass : MonoBehaviour 
+    {
+        public Sprite theIcon;
+
+        private void GetAsset()
+        {
+            Brainztorm.AssetBundles.Load<Sprite>("my_bundle", "my_sprite", (icon) =>
+            {
+                theIcon = icon;
+            });
+        }
+    }
