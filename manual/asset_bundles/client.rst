@@ -105,3 +105,8 @@ called *"my_bundle"*:
             });
         }
     }
+
+In the example above, if is the first load for *"my_bundle"*, then the download is 
+performed from the URL given on :code:`GetAssetsOptions` response. The second and sucesive 
+loads to *"my_bundle"* will be fetched from the AssetBundle Cache and request to server 
+will not be fired, until you use :code:`Brainztorm.AssetBundles.ClearCache()` method.
