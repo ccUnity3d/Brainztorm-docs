@@ -53,8 +53,8 @@ The method :code:`NotifyRateAsk` sends the following request to he server:
     }
 
 If the user previously selected *Remind Me Later* and the *Remember Time* is elapsed then 
-the server response will contain a *AskRate* type that will be procesed automatically by 
-Brainztorm and will show up the Rate popup to the user:
+the server responds with an `Automatic transaction`_ containing a *AskRate* type that 
+will be procesed automatically by Brainztorm and will show up the Rate popup to the user:
 
 .. code-block:: javascript
 
@@ -163,3 +163,4 @@ The snippet below shows a simple example:
 
 .. _API Reference: #
 .. _Brainztorm Settings Menu: #
+.. _Automatic transaction: #
