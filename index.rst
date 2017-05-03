@@ -22,3 +22,4 @@ Table of Contents
    manual/asset_bundles/index
    manual/items/index
    manual/store/index
+   manual/rate_game/index

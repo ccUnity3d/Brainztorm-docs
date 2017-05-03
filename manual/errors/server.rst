@@ -1,11 +1,15 @@
+#############
 Server Errors
-==========================
-Unde the *Diagnostics > Errors* option, you can see all error reports made by the client, ordered from lastest insidence to the oldest. These error reports include server failures, brainztorm sdks detected errors and crashes.
+#############
 
-At the right top of the screen, you can find filters to group by type of errors or show a specific error by its unique id.
+Unde the *Diagnostics > Errors* option, you can see all error reports made by the 
+client, ordered from lastest insidence to the oldest. These error reports include 
+server failures, brainztorm sdks detected errors and crashes.
+
+At the right top of the screen, you can find filters to group by type of errors or 
+show a specific error by its unique id.
 
 .. image:: images/errors-filter.png
-
 
 In the list of errors you can see the following properties:
 

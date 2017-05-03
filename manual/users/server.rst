@@ -1,8 +1,6 @@
+############
 Server Users
-============
-
-Introduction
-------------
+############
 
 Provides an interface to manage users and their devices. Also, collects useful
 information and allows you to perform actions such as:
@@ -23,9 +21,9 @@ This module is integrated with the following components:
  - Inbox
 
 Devices
-^^^^^^^
-When you log into the game, devices send hardware and OS information to the server, linking it to a user through
-an unique device id.
+=======
+When you log into the game, devices send hardware and OS information to the server, 
+linking it to a user through an unique device id.
 
 .. image:: images/devices.png
 
@@ -45,8 +43,11 @@ The information available is:
 .. image:: images/devices2.png
 
 Social Networks
-^^^^^^^^^^^^^^^
-Devices that belong to a user and are connected to supported social networks like Google Play, Game Center or Facebook, send information to the server. This allows an user to login using any of his registered networks and continue with their prior game progress.
+===============
+Devices that belong to a user and are connected to supported social networks like 
+Google Play, Game Center or Facebook, send information to the server. This allows 
+an user to login using any of his registered networks and continue with their prior 
+game progress.
 
 .. image:: images/social.png
 
@@ -60,7 +61,7 @@ Supported social networks:
  - Facebook
 
 Session
-^^^^^^^
+=======
 Each time the user starts the game, a connection is stablished with our server. We collect data related to this play session.
 
 The country where the user is playing is tracked by IP address, allowing to group users by country or region. This information can be used for marketing purposes.
@@ -88,8 +89,9 @@ We can see a history of connections made for that user.
 - *Timezone*: The last timezone that logged.
 
 Resources
-^^^^^^^^^
-Brainztorm allows resource management in a game with the ability to link these to users for easy handling. These can be used in the game through the resources module.
+=========
+Brainztorm allows resource management in a game with the ability to link these to 
+users for easy handling. These can be used in the game through the resources module.
 
 .. image:: images/resources.png
 
@@ -99,40 +101,47 @@ Brainztorm allows resource management in a game with the ability to link these t
 - *Maximum Amount*: Maximum amount of the resource.
 
 Achievements
-^^^^^^^^^^^^
-Brainztorm allows achievement management in a game with the ability to link these to users for easy handling.
-These can be used through the Achievements module.
+============
+Brainztorm allows achievement management in a game with the ability to link these 
+to users for easy handling. These can be used through the Achievements module.
 
 PVP
-^^^
-Using Brainztorm you can view the history of PVP (Player vs. Player) battles if they are logged to the server.
+===
+Using Brainztorm you can view the history of PVP (Player vs. Player) battles if they 
+are logged to the server.
 
 Inbox
-^^^^^
-Brainztorm allows sending notifications to users, custom game messages for a player or sending mass messages coming to their inbox.
+=====
+Brainztorm allows sending notifications to users, custom game messages for a player 
+or sending mass messages coming to their inbox.
 
 Logs
-^^^^
-Brainztorm allows you to log data in your game either for debugging, error tracking and more. These logs can be useful both for your support and QA teams.
+====
+Brainztorm allows you to log data in your game either for debugging, error tracking 
+and more. These logs can be useful both for your support and QA teams.
 
 Store
-^^^^^
-Different products can be offered to different sets of users. The parameters can be based on locale, language, country, age, etc.
+=====
+Different products can be offered to different sets of users. The parameters can be 
+based on locale, language, country, age, etc.
 
 Profanity Filter
-^^^^^^^^^^^^^^^^
-Games restrict reserved or offensive words that could cause a game to be closed or suspended from the application market.
-Brainztorm offers a profanity filter which allows to create filters and apply them to avoid their usage on different instances.
+================
+Games restrict reserved or offensive words that could cause a game to be closed or 
+suspended from the application market. Brainztorm offers a profanity filter which 
+allows to create filters and apply them to avoid their usage on different instances.
 A good example are usernames or chat services.
 
-Words can be categorized by language, to create / edit a group use the "Profanity Category" tab:
+Words can be categorized by language, to create / edit a group use the 
+"Profanity Category" tab:
 
 .. image:: images/profanity-category.png
 
 - *Name*: Name to represent the category.
 - *Locale*: Locale language.
 
-To add a filter to the profanity filter should enter "Profanity Filters" which allows the filling of those words in a specific group.
+To add a filter to the profanity filter should enter "Profanity Filters" which 
+allows the filling of those words in a specific group.
 
 .. image:: images/profanity-filters.png
 
@@ -140,7 +149,9 @@ To add a filter to the profanity filter should enter "Profanity Filters" which a
 - *Type*: The type to apply the filter.
 - *Value*: Value of the filter.
 
-Filters can be represented in different ways which allow a wide range of ways to match the word: whether to search for the word at the beginning or end of a frace / word or that word exactly.
+Filters can be represented in different ways which allow a wide range of ways to 
+match the word: whether to search for the word at the beginning or end of a 
+frace / word or that word exactly.
 
 .. image:: images/profanity-filters-types.png
 
