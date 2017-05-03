@@ -14,7 +14,7 @@ We offer a way to handle resources transactions for any kind of game, keeping a 
 Content
 *******
 .. toctree::
-   :maxdepth: 3
+    :maxdepth: 3
 
     server.rst
     client.rst
