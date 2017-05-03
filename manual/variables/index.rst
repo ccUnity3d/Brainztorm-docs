@@ -17,7 +17,7 @@ many already available tools.
 Content
 *******
 .. toctree::
-   :maxdepth: 3
+    :maxdepth: 3
 
     server.rst
     client.rst
