@@ -20,6 +20,7 @@ Content
 .. toctree::
     :maxdepth: 3
 
+    server.rst
     client.rst
 
 .. _`Unity Social`: https://docs.unity3d.com/Manual/net-SocialAPI.html
