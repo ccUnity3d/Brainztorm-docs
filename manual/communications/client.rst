@@ -478,7 +478,9 @@ During the handshake phase, Brainztorm verify the minimum version of the game al
 the current platform. It compares the *minVersion* value obtained from handshake JSON file with the 
 current installed version: if the installed version is less than *minVersion* (is deprecated) then 
 shown a native alert dialog forcing the user to go to the respective App Store or Play Store 
-for updating the game in order to continue playing.
+for updating the game in order to continue playing. The image below illustrate how would look like:
+
+.. image:: images/force_update_dialog.png
 
 Session start
 -------------

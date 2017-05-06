@@ -14,6 +14,7 @@ Table of Contents
    manual/localization/index
    manual/errors/index
    manual/users/index
+   manual/social/index
    manual/resources/index
    manual/popups/index
    manual/quality/index
@@ -23,3 +24,5 @@ Table of Contents
    manual/items/index
    manual/store/index
    manual/rate_game/index
+   manual/pooling/index
+  
