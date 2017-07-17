@@ -8,5 +8,5 @@ When we update the fields "minimum version" and "maximum version" force the game
 
 Look the image below:
 
-.. image:: images/admin-hanshake.png
+.. image:: images/admin-handshake.png
 
