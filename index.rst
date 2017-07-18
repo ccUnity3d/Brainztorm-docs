@@ -25,4 +25,4 @@ Table of Contents
    manual/store/index
    manual/rate_game/index
    manual/pooling/index
-  
+   manual/forceupdate/index
