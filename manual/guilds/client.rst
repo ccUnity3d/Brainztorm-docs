@@ -27,10 +27,10 @@ Funciones:
 - :code:`Guilds.Open()`:
   Metodo que abre la vista del modulo si tiene una configurada.
 
-- :code:'Guilds.Close()':
+- :code:`Guilds.Close()`:
   Metodo que cierra la vista del modulo si tiene una configurada.
 
-- :code:'Guilds.GetUserGuild()':
+- :code:`Guilds.GetUserGuild()`:
   Metodo que llama la transaccion para traer el clan al que pertenece el presente usuario.
   la respuesta llega a traves del evento 'Guilds.OnGotUserGuildInfo<GuildDataWrapper>';
   Si el usuario no está unido a un clan, retornará un valor nulo, si el usuario está unido a un clan, traera la siguiente estructura
@@ -51,12 +51,12 @@ Funciones:
           }
       }
 
-- :code:'Guilds.JoinOrLeaveGuild(string guildId, bool isUserGuild)':
+- :code:`Guilds.JoinOrLeaveGuild(string guildId, bool isUserGuild)`:
   Método para unirse o dejar un clan. El parametro 'guildId' es el identificador del clan al que me quiero unir/dejar,
   'isUserGuild' es un booleano que consulta si este clan es al que el usuario pertenece, si es asi, lo que hara será dejarlo
   de lo contrario se unira a este clan si es aceptado.
 
-- :code:'Guilds.SearchGuildByNameOrCode(string search)':
+- :code:`Guilds.SearchGuildByNameOrCode(string search)`:
   Metodo para buscar una lista de clanes. El parametro 'search' es el nombre o codigo del clan o clanes que estoy buscando,
   la respuesta de este metodo vendra a traves del evento 'Guilds.OnGuildsObtained<GuildData>'; y traerá una lista de los clanes
   que contengan en su nombre o codigo el texto del parametro 'search'. La transaccion traera la siguiente estructura encapsulada en
@@ -100,15 +100,15 @@ Funciones:
       }]
     }
 
-- :code:'Guilds.GetGuildsLisyByCatrgory(GuildSearchCollection type)':
+- :code:`Guilds.GetGuildsLisyByCatrgory(GuildSearchCollection type)`:
   Este metodo tiene la misma funcion que el metodo 'Guilds.SearchGuildByNameOrCode(string search)', su respuesta tambien
   llega a traves de el mismo evento; su diferencia es el parametro 'type', que es un enumerador que contiene las opciones
   de categoria que el usuario puede buscar, en este caso son:
 
-  'GuildSearchCollection.Local': Para traer la lista de clanes del pais del usuario.
-  'GuildSearchCollection.Global': Para traer la lista de clanes de todo el mundo.
+  `GuildSearchCollection.Local`: Para traer la lista de clanes del pais del usuario.
+  `GuildSearchCollection.Global`: Para traer la lista de clanes de todo el mundo.
 
-- :code:'Guilds.GetGuildInfo(string guildId)':
+- :code:`Guilds.GetGuildInfo(string guildId)`:
   Método utilizado para traer la informacion de un clan en especifico. El parametro 'guildId' es el identificador del clan
   del cual quiero obtener su informacion. La respuesta de la transaccion viene a traves del evento
   'Guilds.OnGotGuildInfo<GuildData>', que trae la siguiente estructura serializada dentro del objeto 'GuildData', ejemplo:
@@ -151,24 +151,24 @@ Funciones:
 
 Eventos:
 
-- :code:'Action<ReadOnlyCollection<GuildData>> OnGuildsObtained':
+- :code:`Action<ReadOnlyCollection<GuildData>> OnGuildsObtained`:
   Este evento se dispara cuando una lista de clanes llega desde el backend, es el que trae el resultado de los metodos
   'GetGuildsLisyByCatrgory' y 'SearchGuildByNameOrCode'.
 
-- :code:'Action<GuildInfo> OnGotGuildInfo':
+- :code:`Action<GuildInfo> OnGotGuildInfo`:
   Este evento se dispara cuando la informacion completa de un clan llega desde el backend, es el que trae el resultado
   del metodo 'GetGuildInfo'.
 
-- :code:'Action<string, bool> OnJoinedToGuild':
+- :code:`Action<string, bool> OnJoinedToGuild`:
   Este evento se ejecuta cuando el usuario consultó a un clan si podia unirse o dejarlo usando el metodo 'JoinOrLeaveGuild',
   Este se dispara cuando no era el clan del usuario y trae dos parametros, uno es el id del guild al cual trate de unirme,
   y otro es un bool que indica si fui aceptado o no en este clan.
 
-- :code:'Action OnLeavedGuild':
+- :code:`Action OnLeavedGuild`:
   Este evento se ejecuta cuando el usuario consultó a un clan si podia unirse o dejarlo usando el metodo 'JoinOrLeaveGuild',
   este se dispara cuando el clan consultado era el del usuario, y pude dejarlo exitosamente.
 
-- :code:'Action<GuildDataWrapper> OnGotUserGuildInfo':
+- :code:`Action<GuildDataWrapper> OnGotUserGuildInfo`:
   Este evento se ejecuta cuando el backend trata de traer la informacion del clan al que pertenece el presente usuario.
   Si el usuario pertenece a un clan, traera la informacion de este clan en un objeto 'GuildDataWrapper', sin embargo si el
   usuario no pertenece a ningun clan, el objeto 'GuildDataWrapper' tendrá un valor nulo.
@@ -201,7 +201,7 @@ el cual tambien es un prefab que se debe arrastrar a la escena; este se puede en
 2. Teniendo ambos prefabs en la escena, lo siguiente es arrastrar la referencia del script 'GuildsView.cs' que contiene
 el objeto 'Guilds' dentro del 'Guilds Canvas.prefab', hacia el instalador de la vista, en el campo 'Guilds View'.
 
-.. image:: images/Guilds_View_Object_Reference_Path.png
+.. image:: images/Guilds_View_Object_Reference.png
 
 Si el usuario ha seguido correctamente estos pasos, al momento de reproducir la escena y presionar el botón para abrir la
 ventana, verá lo siguiente:
