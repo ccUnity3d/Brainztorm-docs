@@ -20,20 +20,26 @@ The icons in this example is: Global, Country and Friends.
 .. image:: images/leaderboards_game_country.png
 .. image:: images/leaderboards_game_friends.png
 
-***********
-Tansactions
-***********
 
-.. code-block:: javascript
+Tansactions
+===========
+
+```javascript
   //request global
   {"ranking":"global","type":"GetRanking"}
-  
+``` 
+
+```javascript
   //request country
   {"ranking":"country","type":"GetRanking"}
-  
+```
+
+```javascript
   //request social network friends
   {"ranking":"social","type":"GetRanking"}
+```
 
+```javascript
   //response
   {
       "type": "GetRanking",
@@ -102,9 +108,9 @@ Tansactions
           }
         ]
       }
-    }
-    
-
+    }
+``` 
+   
 When you need to update the position in the leaderboard of one user the developer need to manually update 
 by server process.
 
