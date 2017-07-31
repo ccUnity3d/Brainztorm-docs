@@ -1,5 +1,5 @@
 #############
-Leaderbopards
+Leaderboards
 #############
 
 For working with Leaderboards first you need to set the provider URLs through 
